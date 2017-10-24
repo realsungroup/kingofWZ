@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { BaseGoodsComponent } from '../base-goods/base-goods.component';
 
 @Component({
   selector: 'goods-detail',
-  templateUrl: './goods-detail.component.html',
+  templateUrl: '../base-goods/base-goods.component.html',
   styleUrls: ['./goods-detail.component.scss']
 })
-export class GoodsDetailComponent implements OnInit {
+export class GoodsDetailComponent extends BaseGoodsComponent implements OnInit {
 
-  constructor() { }
+  @Output() closeNoti = new EventEmitter();
 
   ngOnInit() {
+    super.ngOnInit();
+    this.detail = true;
+  }
+
+  //返回事件
+  close() {
+    this.closeNoti.emit();
   }
 
 }

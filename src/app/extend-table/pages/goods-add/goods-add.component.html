@@ -1,147 +1,152 @@
-<!-- <div [class.hidden]="!_theMainModal" class="window-model-container"> -->
+<div class="window-model-container">
+  <div class="components-table-demo-control-bar">
+    <form nz-form [nzLayout]="'inline'">
+      <div nz-row nz-form-item>
+        <button nz-button (click)="goBack()">
+          <span>返回</span>
+        </button>
+      </div>
+      <div nz-row nz-form-item>
+          <button nz-button (click)="submitClick()">
+            <span>提交</span>
+          </button>
+        </div>
+    </form>
+  </div>
+
   <nz-table #nzTableHeader [nzDataSource]="[data]" [nzBordered]="true" [nzIsPagination]="false">
     <tbody nz-tbody>
       <tr nz-tbody-tr>
         <td nz-td>搬出日期</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648705356" [data]="data" [title]="_data.C3_561648705356" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648705356" [data]="data" [title]="_data.C3_561648705356" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>物资带入人</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648718493" [data]="data" [title]="_data.C3_561648718493" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648718493" [data]="data" [title]="_data.C3_561648718493" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>公司/部门</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648769212" [data]="data" [title]="_data.C3_561648769212" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648769212" [data]="data" [title]="_data.C3_561648769212" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>联系方式</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648790262" [data]="data" [title]="_data.C3_561648790262" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648790262" [data]="data" [title]="_data.C3_561648790262" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
       </tr>
       <tr nz-tbody-tr>
         <td nz-td>搬出车辆</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648813629" [data]="data" [title]="_data.C3_561648813629" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648813629" [data]="data" [title]="_data.C3_561648813629" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>车牌号</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648820757" [data]="data" [title]="_data.C3_561648820757" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648820757" [data]="data" [title]="_data.C3_561648820757" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>司机姓名</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648837854" [data]="data" [title]="_data.C3_561648837854" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648837854" [data]="data" [title]="_data.C3_561648837854" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>联系方式</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648846303" [data]="data" [title]="_data.C3_561648846303" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648846303" [data]="data" [title]="_data.C3_561648846303" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
       </tr>
       <tr nz-tbody-tr>
         <td nz-td>出厂时间</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648899389" [data]="data" [title]="_data.C3_561648899389" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648899389" [data]="data" [title]="_data.C3_561648899389" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>区分</td>
         <td nz-td>
-          <app-form-item-dynamic *ngIf="_data.C3_561648926062" [data]="data" [title]="_data.C3_561648926062" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648926062" [data]="data" [title]="_data.C3_561648926062" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>出厂保安确认</td>
         <td nz-td [attr.colspan]="3">
-          <app-form-item-dynamic *ngIf="_data.C3_561648995990" [data]="data" [title]="_data.C3_561648995990" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561648995990" [data]="data" [title]="_data.C3_561648995990" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
       </tr>
-    </tbody>
-  </nz-table>
 
-  <app-lzcommon-table 
-    [isAutoData]="true"
-    [requestType]="'GET'"
-    [requestUrl]="url"
-    [requestParams]="requestParams"
-    [requestDataType]="requestDataType"
-    [addFormName]="'add'"
-    [operationOrginButton]="[false,true,false,false]"
-    [tabs]="tabs">
-  </app-lzcommon-table>
-
-  <nz-table #nzTableFoot [nzDataSource]="[data]" [nzBordered]="true" [nzIsPagination]="false">
-    <tbody nz-tbody>
       <tr nz-tbody-tr>
         <td nz-td [attr.rowspan]="2">委托人资料</td>
         <td nz-td>部门</td>
         <td nz-td>
-            <app-form-item-dynamic *ngIf="_data.C3_561649020170" [data]="data" [title]="_data.C3_561649020170" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649020170" [data]="data" [title]="_data.C3_561649020170" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>科别</td>
         <td nz-td>
-            <app-form-item-dynamic *ngIf="_data.C3_561649023008" [data]="data" [title]="_data.C3_561649023008" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649023008" [data]="data" [title]="_data.C3_561649023008" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>备注</td>
         <td nz-td [attr.colspan]="4">特殊情况，无审批人签字的由行政部审批确认。</td>
       </tr>
       <tr nz-tbody-tr>
-        <td nz-td>姓名</td>  
+        <td nz-td>姓名</td>
         <td nz-td>
-            <app-form-item-dynamic *ngIf="_data.C3_561649034242" [data]="data" [title]="_data.C3_561649034242" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649034242" [data]="data" [title]="_data.C3_561649034242" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>工号</td>
         <td nz-td>
-            <app-form-item-dynamic *ngIf="_data.C3_561649048171" [data]="data" [title]="_data.C3_561649048171" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649048171" [data]="data" [title]="_data.C3_561649048171" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
         <td nz-td>搬出意见</td>
         <td nz-td [attr.colspan]="4">
-            <app-form-item-dynamic *ngIf="_data.C3_561649132110" [data]="data" [title]="_data.C3_561649132110" (clickNotiEvent)="formItemDynamicClick($event)"
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649132110" [data]="data" [title]="_data.C3_561649132110" (clickNotiEvent)="formItemDynamicClick($event)"
             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
         </td>
       </tr>
       <tr nz-tbody-tr>
-          <td nz-td [attr.rowspan]="2">委托部门审批</td>
-          <td nz-td [attr.colspan]="4">审批</td>
-          <td nz-td [attr.rowspan]="2">许可部门审批</td>
-          <td nz-td [attr.colspan]="4">审批</td>
+        <td nz-td [attr.rowspan]="2">委托部门审批</td>
+        <td nz-td [attr.colspan]="4">审批</td>
+        <td nz-td [attr.rowspan]="2">许可部门审批</td>
+        <td nz-td [attr.colspan]="4">审批</td>
       </tr>
       <tr nz-tbody-tr>
-          <td nz-td [attr.colspan]="4">
-              <app-form-item-dynamic *ngIf="_data.C3_561649105932" [data]="data" [title]="_data.C3_561649105932" (clickNotiEvent)="formItemDynamicClick($event)"
-              (updateNotiEvent)="update($event)"></app-form-item-dynamic>
-          </td>
-          <td nz-td [attr.colspan]="4">
-              <app-form-item-dynamic *ngIf="_data.C3_561649189367" [data]="data" [title]="_data.C3_561649189367" (clickNotiEvent)="formItemDynamicClick($event)"
-              (updateNotiEvent)="update($event)"></app-form-item-dynamic>
-          </td>
+        <td nz-td [attr.colspan]="4">
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649105932" [data]="data" [title]="_data.C3_561649105932" (clickNotiEvent)="formItemDynamicClick($event)"
+            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
+        </td>
+        <td nz-td [attr.colspan]="4">
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649189367" [data]="data" [title]="_data.C3_561649189367" (clickNotiEvent)="formItemDynamicClick($event)"
+            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
+        </td>
       </tr>
       <tr nz-tbody-tr>
-          <td nz-td [attr.rowspan]="2" [attr.colspan]="5">上述物品搬出已确认</td>
-          <td nz-td [attr.colspan]="5">保安确认/日期</td>
+        <td nz-td [attr.rowspan]="2" [attr.colspan]="5">上述物品搬出已确认</td>
+        <td nz-td [attr.colspan]="5">保安确认/日期</td>
       </tr>
       <tr nz-tbody-tr>
-          <td nz-td [attr.colspan]="5">
-              <app-form-item-dynamic *ngIf="_data.C3_561649232312" [data]="data" [title]="_data.C3_561649232312" (clickNotiEvent)="formItemDynamicClick($event)"
-              (updateNotiEvent)="update($event)"></app-form-item-dynamic>
-          </td>
+        <td nz-td [attr.colspan]="5">
+          <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561649232312" [data]="data" [title]="_data.C3_561649232312" (clickNotiEvent)="formItemDynamicClick($event)"
+            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
+        </td>
       </tr>
     </tbody>
   </nz-table>
 
+  <app-lzcommon-table [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType"
+    [addFormName]="'add'" [operationOrginButton]="[false,true,false,false]" [tabs]="tabs">
+  </app-lzcommon-table>
+</div>
 
-<!-- </div> -->
 
-<!-- <ng-container *ngIf="!_theMainModal">
-  <app-form-item-resource [advDictionaryListData]="advDictionaryListData" [data]="data" (formItemResourceNoti)="formItemResourceNoti($event)"></app-form-item-resource>
-</ng-container> -->
+<ng-container *ngIf="!_theMainModal">
+    <lz-modal-frame (closeEM)="_theMainModal = true" [width]="700">
+        <app-form-item-resource [alertModal]="true" [advDictionaryListData]="advDictionaryListData" [data]="data" (formItemResourceNoti)="formItemResourceNoti($event)"></app-form-item-resource>        
+    </lz-modal-frame>
+</ng-container>

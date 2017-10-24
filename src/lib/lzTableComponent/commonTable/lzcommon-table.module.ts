@@ -19,7 +19,8 @@ import { FormTitleDynamicComponent } from '../component/form-title-dynamic/form-
 import { CommonCardComponent } from '../extendTable/common-card/common-card.component';
 import { CommonTreeComponent } from '../component/common-tree/common-tree.component';
 import { TableFilterComponent } from '../component/table-filter/table-filter.component';
- 
+import { LzModalFrameComponent } from '../component/lz-modal-frame/lz-modal-frame.component';
+import { WebCameraComponent } from '../component/web-camera/web-camera.component';
 import { MergePipe } from '../pipe/merge.pipe';
 import { RepeatLoadOverDirective } from '../directive/repeat-load-over.directive';
 
@@ -28,7 +29,9 @@ import { LZUntilService } from '../until/until.service';
 const DIRECTIVES = [
   TableFilterComponent,
   CommonTreeComponent,
-  CommonCardComponent
+  CommonCardComponent,
+  LzModalFrameComponent,
+  WebCameraComponent
 ]
 
 @NgModule({
@@ -41,7 +44,8 @@ const DIRECTIVES = [
     BrowserAnimationsModule,
     NzTreeModule
   ],
-  declarations: [LZcommonTableComponent,
+  declarations: [
+    LZcommonTableComponent,
     WindowModalFormReadonlyComponent,
     ModalFormComponent,
     FormItemDynamicComponent,
@@ -50,7 +54,7 @@ const DIRECTIVES = [
     FormItemDynamicPComponent,
     AddFormDataComponent,
     FormTitleDynamicComponent,
-    RepeatLoadOverDirective,...DIRECTIVES],
+    RepeatLoadOverDirective, ...DIRECTIVES],
   providers: [LZUntilService],
   exports: [LZcommonTableComponent,
     WindowModalFormReadonlyComponent,
@@ -60,6 +64,6 @@ const DIRECTIVES = [
     FormItemDynamicPComponent,
     AddFormDataComponent,
     FormTitleDynamicComponent
-    ,...DIRECTIVES]
+    , ...DIRECTIVES]
 })
 export class LzcommonTableModule { }

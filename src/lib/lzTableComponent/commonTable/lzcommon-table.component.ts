@@ -28,6 +28,8 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
   _tableBtnArr: Array<any> = [];//表格后台自定义按钮
 
   //公共参数
+  @Input() alertModal:boolean = false;
+  @Input() serchEnable:boolean = true;  
   @Input() isExport: boolean = false;
   @Input() isAutoData: boolean = false;//是否自动获取数据
   @Input() isAttachDataModal: boolean = false;//是否是附表数据
@@ -65,11 +67,11 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
   _btnExportLoading: boolean = false;//导出按钮loading状态
 
   //table header 过滤排序部分
-  @Input() havTableFilter:boolean = false;
+  @Input() havTableFilter: boolean = false;
   copyData = [];
   @Input() filterColArr = [];//过滤字段数组
   @Input() sortColArr = [];//排序字段数组
-  
+
 
   constructor(protected _httpSev: BaseHttpService, protected modalSev: NzModalService, protected messageSev: NzMessageService) {
 
@@ -82,6 +84,9 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
       this.current = this.requestParams['pageIndex'] + 1;
       this.pageSize = this.requestParams['pageSize'];
       this.resid = this.requestParams.resid;
+      if(this.isAttachDataModal){
+        this.resid = this.requestParams.subResid;
+      }
       this._cmswhere = this.requestParams.cmswhere || "";
       refresh = true;
     }
@@ -139,11 +144,11 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
             if (data && Array.isArray(data['data'])) {
               this._dataSet = data['data'];
               this._total = data['total'];
-            }else{
+            } else {
               this._dataSet = [];
               this._total = 0;
             }
-              this.copyData = [...this._dataSet];
+            this.copyData = [...this._dataSet];
           },
           error => {
             this.messageSev.error("获取数据失败");
@@ -187,7 +192,7 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
               this.titleArr = data['cmscolumninfo'];
               this._dataSet = data['data'];
               this._total = data['total'];
-            }else{
+            } else {
               this._dataSet = [];
               this._total = 0;
             }
@@ -401,8 +406,12 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
 
   /********组件代理******* */
   //table filter 筛选 排序更新事件
-  tableFilterUpdateData(data){
+  tableFilterUpdateData(data) {
     this._dataSet = data;
+  }
+
+  alertModalEM(){
+    this.windowModalNoti();
   }
 
 }

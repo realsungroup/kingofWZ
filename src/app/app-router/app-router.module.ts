@@ -8,10 +8,22 @@ import { LoginComponent } from '../main/login/login.component';
 import { ClearCacheComponent } from '../main/cache/clear-cache/clear-cache.component';
 import { PassCardComponent } from '../main/apply/pass-card/pass-card.component';
 
+import { RsuManageComponent } from '../main/rsu-manage/rsu-edit/rsu-manage.component';
+import { StaffListComponent } from '../main/rsu-manage/staff-list/staff-list.component';
+import { StaffListExportComponent } from '../main/rsu-manage/staff-list-export/staff-list-export.component';
+import { TeamEditComponent } from '../main/rsu-manage/team-edit/team-edit.component';
+import { RsuPendComponent } from '../main/rsu-manage/rsu-pend/rsu-pend.component';
+
 const childRouts:Array<any> = [
   // { path: '', redirectTo: 'rsu', pathMatch: 'full'},
   { path: 'clearCache',component:ClearCacheComponent,link:'/main/clearCache'},
-  { path: 'passCard',component:PassCardComponent,link:'/main/passCard'}
+  { path: 'passCard',component:PassCardComponent,link:'/main/passCard'},
+
+  { path: 'rsu',component:RsuManageComponent,link:'/main/rsu'},
+  { path: 'staffList',component:StaffListComponent,link:'/main/staffList'},
+  { path: 'staffListExport',component:StaffListExportComponent,link:'/main/staffListExport'},
+  { path: 'teamEdit',component:TeamEditComponent,link:'/main/teamEdit'},
+  { path: 'rsuPend',component:RsuPendComponent,link:'/main/rsuPend'}
 ]
 
 const routes: Array<any> = [

@@ -14,6 +14,8 @@ import { MainService } from './main.service';
 
 import { ApplyModule } from './apply/apply.module';
 
+import { RsuManageModule } from './rsu-manage/rsu-manage.module';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { ApplyModule } from './apply/apply.module';
     RouterModule,
     LzcommonTableModule,
     FormsModule,
+    RsuManageModule,
     ApplyModule
   ],
   declarations: [

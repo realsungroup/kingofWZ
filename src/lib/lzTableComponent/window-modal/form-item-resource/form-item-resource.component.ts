@@ -20,8 +20,10 @@ export class FormItemResourceComponent implements OnInit {
   _matchAndReferenceCols: Array<any> = [];
   _dictionaryFilterCol: Array<any> = [];
 
+  
   @Input() advDictionaryListData: any;
   @Input() data: any = {};
+  @Input() alertModal = false;
   @Output() formItemResourceNoti = new EventEmitter();
 
   constructor(private httpSev: BaseHttpService,private messageSev:NzMessageService) {

@@ -22,11 +22,11 @@
 
       <div nz-row nz-form-item *ngIf="isExport">
         <button nz-button (click)="exportXls()" [nzLoading]="_btnExportLoading" [nzType]="'primary'">
-              <span>µ¼³ö</span>
+              <span>导出</span>
           </button>
       </div>
       <div nz-form-item nz-row>
-        <nz-input *ngIf="isAutoData" name="serach" [(ngModel)]="searchValue" [nzPlaceHolder]="'ËÑË÷'" (ngModelChange)="searchChange($event)">
+        <nz-input *ngIf="isAutoData && serchEnable" name="serach" [(ngModel)]="searchValue" [nzPlaceHolder]="'搜索'" (ngModelChange)="searchChange($event)">
         </nz-input>
       </div>
 
@@ -59,7 +59,7 @@
           <button nz-button [nzType]="'default'" (click)="operationClick($event,data,dataIndex)"><span>操作</span></button>
         </td>
         <td *ngIf="operationOrginButton[2]">
-          <button nz-button [nzType]="'default'" (click)="attachTableClick($event,data,dataIndex)"><span>¸½±í</span></button>
+          <button nz-button [nzType]="'default'" (click)="attachTableClick($event,data,dataIndex)"><span>附表</span></button>
         </td>
         <td *ngIf="operationOrginButton[3]">
           <button nz-button [nzType]="'danger'" (click)="deleteClick(data)"><span>删除</span></button>
@@ -98,16 +98,16 @@
 
         <!-- ¹Ì¶¨°´Å¥×é -->
         <td *ngIf="operationOrginButton[0]">
-          <button nz-button [nzType]="'primary'" (click)="detailClick($event,data,dataIndex)"><span>ÏêÇé</span></button>
+          <button nz-button [nzType]="'primary'" (click)="detailClick($event,data,dataIndex)"><span>详情</span></button>
         </td>
         <td *ngIf="operationOrginButton[1]">
-          <button nz-button [nzType]="'default'" (click)="operationClick($event,data,dataIndex)"><span>²Ù×÷</span></button>
+          <button nz-button [nzType]="'default'" (click)="operationClick($event,data,dataIndex)"><span>操作</span></button>
         </td>
         <td *ngIf="operationOrginButton[2]">
-          <button nz-button [nzType]="'default'" (click)="attachTableClick($event,data,dataIndex)"><span>¸½±í</span></button>
+          <button nz-button [nzType]="'default'" (click)="attachTableClick($event,data,dataIndex)"><span>附表</span></button>
         </td>
         <td *ngIf="operationOrginButton[3]">
-          <button nz-button [nzType]="'danger'" (click)="deleteClick(data)"><span>É¾³ý</span></button>
+          <button nz-button [nzType]="'danger'" (click)="deleteClick(data)"><span>删除</span></button>
         </td>
 
         <!-- ×Ô¶¨Òå°´Å¥×é -->
@@ -128,13 +128,13 @@
 </div>
 
 <ng-container *ngIf="_theModalName == 'form-readonly'">
-  <goods-detail></goods-detail>
+  <goods-detail [tabs]="tabs" [resid]="resid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail>
 </ng-container>
 
 <ng-container *ngIf="_theModalName == 'form'">
-  <goods-operation></goods-operation>
+  <goods-operation [tabs]="tabs" [resid]="resid" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation>
 </ng-container>
 
 <ng-container *ngIf="_theModalName == 'addDataForm'">
-  <goods-add [resid]="resid"></goods-add>
+  <goods-add [resid]="resid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add>
 </ng-container>

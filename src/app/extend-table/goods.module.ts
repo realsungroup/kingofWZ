@@ -13,7 +13,7 @@ import { FormItemDynamicComponent } from '../../lib/lzTableComponent/component/f
 import { ExtendTableComponent } from './extend-table.component';
 
 import { LzcommonTableModule } from '../../lib/lzTableComponent/commonTable/lzcommon-table.module';
-import { FormItemResourceComponent } from '../../lib/lzTableComponent/window-modal/form-item-resource/form-item-resource.component';
+import { BaseGoodsComponent } from './pages/base-goods/base-goods.component';
 
 @NgModule({
   imports: [
@@ -25,8 +25,8 @@ import { FormItemResourceComponent } from '../../lib/lzTableComponent/window-mod
     BrowserAnimationsModule,
     BrowserModule
   ],
-  entryComponents:[FormItemResourceComponent],
-  declarations: [GoodsDetailComponent, GoodsOperationComponent,GoodsAddComponent,ExtendTableComponent],
+  entryComponents:[GoodsAddComponent],
+  declarations: [GoodsDetailComponent, GoodsOperationComponent,GoodsAddComponent,ExtendTableComponent, BaseGoodsComponent],
   exports:[GoodsDetailComponent, GoodsOperationComponent,GoodsAddComponent,ExtendTableComponent]
 })
 export class GoodsModule { }

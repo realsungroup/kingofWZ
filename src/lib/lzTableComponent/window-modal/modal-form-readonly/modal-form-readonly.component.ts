@@ -12,7 +12,7 @@ export class WindowModalFormReadonlyComponent implements OnInit {
   path: any;
 
   @Output() closeNoti = new EventEmitter();
-
+  @Input() alertModal:boolean = false;
   @Input() tabs: Array<LZTab> = [];
   @Input() data: any = {};
   @Input() resid: string = '';

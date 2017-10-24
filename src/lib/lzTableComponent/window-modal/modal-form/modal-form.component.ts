@@ -34,6 +34,7 @@ export class ModalFormComponent implements OnInit,OnDestroy{
   path: any;//appConfig中路径
   advDictionaryListData: any;//传递给formresource组件的数据
 
+  @Input() alertModal:boolean = false;
   @Input() isMainData: boolean = false;//是否是主表数据
   @Input() isCustomPosition: boolean = false;//是否组件自定义定位
   @Input() tabs: Array<LZTab> = [];//标签数据，获取标题数据后添加进去
@@ -76,11 +77,11 @@ export class ModalFormComponent implements OnInit,OnDestroy{
 
   //获取窗体的数据
   getKeysData(tab: LZTab, resid: string) {
-    this.getData(tab.formName, resid).subscribe(
+    this.getData(tab.formName, resid).subscribe( 
       data => {
         if (data && data.data && data.data.columns) {
           //筛选出字段类型数据
-          tab.titleArray = data.data.columns.filter(item => (item.ColName && item.ColName.length) || (item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol));
+          tab.titleArray = data.data.columns.filter(item => (item.ColName && item.ColName.length) || (item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol) || (item.FrmFieldFormType == FormItemElementEM.ImageForInputform));
           //筛选出标题类型数据
           tab.titleElementArray = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.Label);
           //form高度(absolute定位不会撑起父元素高度)
@@ -234,18 +235,7 @@ export class ModalFormComponent implements OnInit,OnDestroy{
     //打开formitemresource 组件
     let title = note['title'];
     this.advDictionaryListData = title.AdvDictionaryListData;
-    // this._theMainModal = false;
-
-    this.modalSev.open({
-      title:'查询',
-      content:FormItemResourceComponent,
-      footer:false,
-      componentParams:{
-        advDictionaryListData : this.advDictionaryListData,
-        data:this.data,
-        formItemResourceNoti:this.formItemResourceNoti
-      }
-    })
+    this._theMainModal = false;
   }
 
   //formItemDynamic刷新数据
@@ -253,7 +243,6 @@ export class ModalFormComponent implements OnInit,OnDestroy{
     let a = Object.assign({}, this.data);
     this.data = a;
   }
-
 
   formItemResourceNoti(note: any) {
     if (note['name'] == 'close') this._theMainModal = true;

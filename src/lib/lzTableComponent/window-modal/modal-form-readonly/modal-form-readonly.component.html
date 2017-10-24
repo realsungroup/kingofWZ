@@ -1,8 +1,8 @@
 <div class="window-model-container">
   <div class="components-table-demo-control-bar">
     <form nz-form [nzLayout]="'inline'">
-      <div nz-row nz-form-item>
-        <button nz-button [nzType]="'default'" (click)="close()"><span>返回</span></button>
+      <div nz-row nz-form-item *ngIf="!alertModal">
+        <button nz-button [nzType]="'default'" (click)="close()"><span>??</span></button>
       </div>
     </form>
   </div>

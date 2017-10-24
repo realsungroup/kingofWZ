@@ -1,3 +1,120 @@
-<p>
-  goods-detail works!
-</p>
+<div [class.hidden]="!_theMainModal" class="window-model-container">
+  <div class="components-table-demo-control-bar">
+    <form nz-form [nzLayout]="'inline'">
+      <div nz-row nz-form-item>
+        <button nz-button (click)="close()">
+          <span>返回</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <nz-table #nzTableHeader [nzDataSource]="[data]" [nzBordered]="true" [nzIsPagination]="false">
+    <tbody nz-tbody>
+      <tr nz-tbody-tr>
+        <td nz-td>搬出日期</td>
+        <td nz-td>
+          {{data['C3_561648705356']}}
+        </td>
+        <td nz-td>物资带入人</td>
+        <td nz-td>
+          {{data['C3_561648718493']}}
+        </td>
+        <td nz-td>公司/部门</td>
+        <td nz-td>
+          {{data['C3_561648769212']}}
+        </td>
+        <td nz-td>联系方式</td>
+        <td nz-td>
+          {{data['C3_561648790262']}}
+        </td>
+      </tr>
+      <tr nz-tbody-tr>
+        <td nz-td>搬出车辆</td>
+        <td nz-td>
+          {{data['C3_561648813629']}}
+        </td>
+        <td nz-td>车牌号</td>
+        <td nz-td>
+          {{data['C3_561648820757']}}
+        </td>
+        <td nz-td>司机姓名</td>
+        <td nz-td>
+          {{data['C3_561648837854']}}
+        </td>
+        <td nz-td>联系方式</td>
+        <td nz-td>
+          {{data['C3_561648846303']}}
+        </td>
+      </tr>
+      <tr nz-tbody-tr>
+        <td nz-td>出厂时间</td>
+        <td nz-td>
+          {{data['C3_561648899389']}}
+        </td>
+        <td nz-td>区分</td>
+        <td nz-td>
+          {{data['C3_561648926062']}}
+        </td>
+        <td nz-td>出厂保安确认</td>
+        <td nz-td [attr.colspan]="3">
+          {{data['C3_561648995990']}}
+        </td>
+      </tr>
+
+      <tr nz-tbody-tr>
+        <td nz-td [attr.rowspan]="2">委托人资料</td>
+        <td nz-td>部门</td>
+        <td nz-td>
+          {{data['C3_561649020170']}}
+        </td>
+        <td nz-td>科别</td>
+        <td nz-td>
+          {{data['C3_561649023008']}}
+        </td>
+        <td nz-td>备注</td>
+        <td nz-td [attr.colspan]="4">特殊情况，无审批人签字的由行政部审批确认。</td>
+      </tr>
+      <tr nz-tbody-tr>
+        <td nz-td>姓名</td>
+        <td nz-td>
+          {{data['C3_561649034242']}}
+        </td>
+        <td nz-td>工号</td>
+        <td nz-td>
+          {{data['C3_561649048171']}}
+        </td>
+        <td nz-td>搬出意见</td>
+        <td nz-td [attr.colspan]="4">
+          {{data['C3_561649132110']}}
+        </td>
+      </tr>
+      <tr nz-tbody-tr>
+        <td nz-td [attr.rowspan]="2">委托部门审批</td>
+        <td nz-td [attr.colspan]="4">审批</td>
+        <td nz-td [attr.rowspan]="2">许可部门审批</td>
+        <td nz-td [attr.colspan]="4">审批</td>
+      </tr>
+      <tr nz-tbody-tr>
+        <td nz-td [attr.colspan]="4">
+          {{data['C3_561649105932']}}
+        </td>
+        <td nz-td [attr.colspan]="4">
+          {{data['C3_561649189367']}}
+        </td>
+      </tr>
+      <tr nz-tbody-tr>
+        <td nz-td [attr.rowspan]="2" [attr.colspan]="5">上述物品搬出已确认</td>
+        <td nz-td [attr.colspan]="5">保安确认/日期</td>
+      </tr>
+      <tr nz-tbody-tr>
+        <td nz-td [attr.colspan]="5">
+          {{data['C3_561649232312']}}
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <app-lzcommon-table  [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType">
+  </app-lzcommon-table>
+</div>

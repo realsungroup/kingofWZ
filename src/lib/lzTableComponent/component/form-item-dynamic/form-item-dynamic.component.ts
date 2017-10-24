@@ -15,11 +15,12 @@ import { BaseHttpService } from '../../../../app/base-http-service/base-http.ser
 export class FormItemDynamicComponent implements OnInit, OnChanges {
   selectTypeEM: FormItemTypeEM;//合并后的枚举
   formItemEM = FormItemTypeEM;
-
+  webCamera = false;//拍照
   structType: number;//数据结构(优先级 2)
   editType: number;//框体类型(优先级 3)
   frmFieldFormType: number;//图片一些显示控件(优先级 1)
 
+  @Input() nSpan = 12;
   @Input() data: any;//上页传递的data数据
   @Input() title: any;//字段数据
   @Input() index: number;//item的index
@@ -56,6 +57,8 @@ export class FormItemDynamicComponent implements OnInit, OnChanges {
       this.selectTypeEM = FormItemTypeEM.Time;
     } else if (this.structType == FormItemStructEM.LongText) {
       this.selectTypeEM = FormItemTypeEM.LongText;
+    }else if(this.frmFieldFormType == FormItemElementEM.ImageForInputform){
+      this.selectTypeEM = FormItemTypeEM.ImgCamera;
     } else {
       this.selectTypeEM = this.editType;
     }
@@ -138,6 +141,16 @@ export class FormItemDynamicComponent implements OnInit, OnChanges {
       fd.append("file", file, 'hello.png');//新建formdata提交，png格式
       xhr.send(fd);
     }
+  }
+
+
+
+  cameraClick(){
+    this.webCamera = true;
+  }
+
+  cameraImgEM(img){
+    console.info(img);
   }
 
   //textarea行数

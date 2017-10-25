@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BaseGoodsComponent } from './base-goods.component';
+import { SecurityOutComponent } from './security-out.component';
 
-describe('BaseGoodsComponent', () => {
-  let component: BaseGoodsComponent;
-  let fixture: ComponentFixture<BaseGoodsComponent>;
+describe('SecurityOutComponent', () => {
+  let component: SecurityOutComponent;
+  let fixture: ComponentFixture<SecurityOutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BaseGoodsComponent ]
+      declarations: [ SecurityOutComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BaseGoodsComponent);
+    fixture = TestBed.createComponent(SecurityOutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

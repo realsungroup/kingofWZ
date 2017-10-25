@@ -26,10 +26,17 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
         this.titleArray = data.data.columns.filter(item => (item.ColName && item.ColName.length) || (item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol) || (item.FrmFieldFormType == FormItemElementEM.ImageForInputform));
         this.titleElementArray = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.Label);
 
-        let imgElementArr = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol);
-        imgElementArr = this.imgElementAddColName(imgElementArr);
+        // let imgElementArr = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol);
+        // imgElementArr = this.imgElementAddColName(imgElementArr);
 
-        this.titleArray = this.fixTitleForImgType(this.titleArray, imgElementArr);
+        // this.titleArray = this.fixTitleForImgType(this.titleArray, imgElementArr);
+
+        let specilTitleArr = [FormItemElementEM.ImageForUrlCol, FormItemElementEM.ImageForInputform];
+        specilTitleArr.forEach(type => {
+          let elementArr = data.data.columns.filter(item => item.FrmFieldFormType == type);
+          elementArr = this.elementAddColName(elementArr);
+          this.titleArray = this.fixTitleForType(this.titleArray, elementArr, type);
+        })
       },
       err => {
         this.messageSev.error("获取数据失败,错误信息:"+ JSON.stringify(err));

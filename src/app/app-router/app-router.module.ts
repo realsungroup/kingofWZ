@@ -7,6 +7,10 @@ import { LoginComponent } from '../main/login/login.component';
 
 import { ClearCacheComponent } from '../main/cache/clear-cache/clear-cache.component';
 import { PassCardComponent } from '../main/apply/pass-card/pass-card.component';
+import { PassCardNoEnterComponent } from '../main/apply/pass-card-no-enter/pass-card-no-enter.component';
+import { SecurityEnterComponent } from '../main/apply/security-enter/security-enter.component';
+import { SecurityOutComponent } from '../main/apply/security-out/security-out.component';
+import { FactoryMoveComponent } from '../main/apply/factory-move/factory-move.component';
 
 import { RsuManageComponent } from '../main/rsu-manage/rsu-edit/rsu-manage.component';
 import { StaffListComponent } from '../main/rsu-manage/staff-list/staff-list.component';
@@ -18,7 +22,11 @@ const childRouts:Array<any> = [
   // { path: '', redirectTo: 'rsu', pathMatch: 'full'},
   { path: 'clearCache',component:ClearCacheComponent,link:'/main/clearCache'},
   { path: 'passCard',component:PassCardComponent,link:'/main/passCard'},
-
+  { path: 'passCardNoEnter',component:PassCardNoEnterComponent,link:'/main/passCardNoEnter'},
+  { path: 'securityEnter',component:SecurityEnterComponent,link:'/main/securityEnter'},
+  { path: 'securityOut',component:SecurityOutComponent,link:'/main/securityOut'},  
+  { path: 'factoryMove',component:FactoryMoveComponent,link:'/main/factoryMove'},  
+  
   { path: 'rsu',component:RsuManageComponent,link:'/main/rsu'},
   { path: 'staffList',component:StaffListComponent,link:'/main/staffList'},
   { path: 'staffListExport',component:StaffListExportComponent,link:'/main/staffListExport'},

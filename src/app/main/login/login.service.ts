@@ -42,7 +42,6 @@ export class LoginService {
     return new Observable(observer => {
 
       let dataArr = [];
-      if (!environment.production) {
         dataArr = [{
           C3_558541978410: '/main',
           C3_558541903900: 0,
@@ -63,7 +62,36 @@ export class LoginService {
           C3_558541922352: "main",
           C3_558541955195: "出门证",
           C3_558541943043: "passCard"
-        }, {
+        },
+        {
+          C3_558541978410: '/main/passCardNoEnter',
+          C3_558541903900: 1,
+          C3_558541922352: "main",
+          C3_558541955195: "出门证无需再进入",
+          C3_558541943043: "passCardNoEnter"
+        },
+        {
+          C3_558541978410: '/main/securityEnter',
+          C3_558541903900: 1,
+          C3_558541922352: "main",
+          C3_558541955195: "安检门物资进入登记表",
+          C3_558541943043: "securityEnter"
+        },
+        {
+          C3_558541978410: '/main/securityOut',
+          C3_558541903900: 1,
+          C3_558541922352: "main",
+          C3_558541955195: "安检门物资出门许可证",
+          C3_558541943043: "securityOut"
+        },
+        {
+          C3_558541978410: '/main/factoryMove',
+          C3_558541903900: 1,
+          C3_558541922352: "main",
+          C3_558541955195: "厂区间物资移动许可证",
+          C3_558541943043: "factoryMove"
+        },
+         {
           C3_558541978410: '/main/staffListExport',
           C3_558541903900: 1,
           C3_558541922352: "main",
@@ -94,9 +122,9 @@ export class LoginService {
           C3_558541903900: 0,
           C3_558541922352: "",
           C3_558541943043: "clearCache",
-          C3_558541955195: "clearCache"
+          C3_558541955195: "清除缓存"
         }];
-      }
+      
       window.app["routesArr"] = dataArr;
 
       let filterRouteArr = this.filterRoute(this.router.config[2].children, dataArr);

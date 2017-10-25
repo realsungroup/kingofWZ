@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter,OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BaseHttpService } from '../../../../app/base-http-service/base-http.service';
 import { Observable } from 'rxjs';
@@ -6,7 +6,7 @@ import { LZTab } from '../../interface/tab.interface';
 import { LZUntilService } from '../../until/until.service';
 import { FormItemElementEM, FormItemTypeEM } from '../../enum/form-item.enum';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { NzMessageService,NzModalService } from 'ng-zorro-antd';
+import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { FormItemResourceComponent } from '../form-item-resource/form-item-resource.component';
 
 @Component({
@@ -27,14 +27,14 @@ import { FormItemResourceComponent } from '../form-item-resource/form-item-resou
   ]
 
 })
-export class ModalFormComponent implements OnInit,OnDestroy{
+export class ModalFormComponent implements OnInit, OnDestroy {
   enterOrBack: boolean = true;
 
   _theMainModal: boolean = true;//是否打开formresource组件（false为打开）
   path: any;//appConfig中路径
   advDictionaryListData: any;//传递给formresource组件的数据
 
-  @Input() alertModal:boolean = false;
+  @Input() alertModal: boolean = false;
   @Input() isMainData: boolean = false;//是否是主表数据
   @Input() isCustomPosition: boolean = false;//是否组件自定义定位
   @Input() tabs: Array<LZTab> = [];//标签数据，获取标题数据后添加进去
@@ -42,7 +42,7 @@ export class ModalFormComponent implements OnInit,OnDestroy{
   @Input() resid: string = '';//主表ID
   @Output() eventNoti = new EventEmitter();//与lzcommontable组件通信
 
-  constructor(protected httpSev: BaseHttpService, protected ut: LZUntilService,protected messageSev:NzMessageService,protected modalSev:NzModalService) {
+  constructor(protected httpSev: BaseHttpService, protected ut: LZUntilService, protected messageSev: NzMessageService, protected modalSev: NzModalService) {
     this.path = this.httpSev.path;
   }
 
@@ -77,7 +77,7 @@ export class ModalFormComponent implements OnInit,OnDestroy{
 
   //获取窗体的数据
   getKeysData(tab: LZTab, resid: string) {
-    this.getData(tab.formName, resid).subscribe( 
+    this.getData(tab.formName, resid).subscribe(
       data => {
         if (data && data.data && data.data.columns) {
           //筛选出字段类型数据
@@ -89,10 +89,17 @@ export class ModalFormComponent implements OnInit,OnDestroy{
           if (Array.isArray(formSelfArr) && formSelfArr[0]) tab.formHeight = formSelfArr[0]["FrmHeight"] || 0;
 
           //筛选出image类型
-          tab.imgElementArr = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol);
-          tab.imgElementArr = this.imgElementAddColName(tab.imgElementArr);
+          // tab.imgElementArr = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol);
+          // tab.imgElementArr = this.imgElementAddColName(tab.imgElementArr);
+          // tab.titleArray = this.fixTitleForImgType(tab.titleArray, tab.imgElementArr);
 
-          tab.titleArray = this.fixTitleForImgType(tab.titleArray, tab.imgElementArr);
+          let specilTitleArr = [FormItemElementEM.ImageForUrlCol, FormItemElementEM.ImageForInputform];
+          specilTitleArr.forEach(type => {
+            let elementArr = data.data.columns.filter(item => item.FrmFieldFormType == type);
+            elementArr = this.elementAddColName(elementArr);
+            tab.titleArray = this.fixTitleForType(tab.titleArray, elementArr, type);
+          })
+
         }
       },
       err => {
@@ -131,11 +138,38 @@ export class ModalFormComponent implements OnInit,OnDestroy{
     return data;
   }
 
+  elementAddColName(data: Array<any>): Array<any> {
+    data.forEach(item => {
+      let frmColName = item.FrmColName;
+      let index = frmColName.lastIndexOf("__") + 2;
+      if (index >= 0) item.ColName = frmColName.substring(index, frmColName.length);
+    })
+    return data;
+  }
+
   //处理图片选择控件的type
   fixTitleForImgType(titleArr: Array<any>, imgElementArr: Array<any>): Array<any> {
     imgElementArr.forEach(imgEle => {
       titleArr.forEach(titleItem => {
         if (titleItem['ColName'] == imgEle.lzImgUrl) titleItem['ColValType'] = FormItemTypeEM.ImageSelect;
+      })
+    })
+    return titleArr;
+  }
+
+  fixTitleForType(titleArr: Array<any>, imgElementArr: Array<any>, type): Array<any> {
+    imgElementArr.forEach(imgEle => {
+      titleArr.forEach(titleItem => {
+        if (titleItem['ColName'] == imgEle['ColName']) {
+          switch (type) {
+            case FormItemElementEM.ImageForUrlCol:
+              titleItem['ColValType'] = FormItemTypeEM.ImageSelect;
+              break;
+            case FormItemElementEM.ImageForInputform:
+              titleItem['ColValType'] = FormItemTypeEM.ImgCamera;
+              break;
+          }
+        }
       })
     })
     return titleArr;
@@ -223,7 +257,7 @@ export class ModalFormComponent implements OnInit,OnDestroy{
         }
       },
       err => {
-        this.messageSev.error("操作错误,错误信息："+JSON.stringify(err));
+        this.messageSev.error("操作错误,错误信息：" + JSON.stringify(err));
       },
       () => {
         subData.loading = false;
@@ -265,7 +299,7 @@ export class ModalFormComponent implements OnInit,OnDestroy{
     return this.ut.customStyle(obj);
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     // console.log("=>>>>>>modal form destory");
   }
 }

@@ -3,22 +3,22 @@ import { BaseGoodsComponent } from '../base-goods/base-goods.component';
 import { NEED_ENTER_DATAMAP } from '../providers/data-map.service';
 
 @Component({
-  selector: 'goods-add',
-  templateUrl: '../base-goods/base-goods.component.html'
+  selector: 'goods-detail-noEnter',
+  templateUrl: '../base-goods/base-goods-noEnter.component.html'
 })
-export class GoodsAddComponent extends BaseGoodsComponent implements OnInit {
+export class GoodsDetailNoEnterComponent extends BaseGoodsComponent implements OnInit {
+
+  @Output() closeNoti = new EventEmitter();
 
   ngOnInit() {
     this._data = NEED_ENTER_DATAMAP;
     super.ngOnInit();
+    this.detail = true;
   }
 
-  //返回点击事件
-  goBack() {
-    this.eventNoti.emit({ name: "close" });
+  //返回事件
+  close() {
+    this.closeNoti.emit();
   }
 
-  submitClick(){
-    super.submitClick(this.httpSev.dataT.AddOneDataEM);
-  }
 }

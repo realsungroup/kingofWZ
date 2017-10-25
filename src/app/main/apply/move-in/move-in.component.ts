@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BaseHttpService } from '../../../base-http-service/base-http.service';
 
 @Component({
-  selector: 'app-pass-card',
-  templateUrl: './pass-card.component.html',
-  styleUrls: ['./pass-card.component.scss']
+  selector: 'app-move-in',
+  templateUrl: './move-in.component.html',
+  styleUrls: ['./move-in.component.scss']
 })
-export class PassCardComponent implements OnInit {
+export class MoveInComponent implements OnInit {
 
   url: string = '';
   requestParams: any = {};
@@ -20,12 +20,12 @@ export class PassCardComponent implements OnInit {
     let path = this.httpSev.path;
     this.url = path.baseUrl + path.getData;
     this.requestParams = {
-      resid: 561753038288,
+      resid: 561753093403,
       pageIndex: 0,
       pageSize: 10,
       getcolumninfo: 1
     }
-    this.subResid = '562075064438';
+    this.subResid = '562179340123';
     this.requestDataType = this.httpSev.dataT.HostTableDataEM;
   }
 

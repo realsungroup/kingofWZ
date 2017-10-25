@@ -12,32 +12,13 @@ export class BaseGoodsComponent implements OnInit {
 
   @Input() detail = false;
   @Input() resid = '';
+  @Input() subResid = '';
   @Output() eventNoti = new EventEmitter();//与lzcommontable组件通信
   @Input() data: any = {};
   @Input() tabs: any[] = [];
   @Input() addFormName:string = '';
 
-  _data: any = {
-    C3_561648705356: null,
-    C3_561648718493: null,
-    C3_561648769212: null,
-    C3_561648790262: null,
-    C3_561648813629: null,
-    C3_561648820757: null,
-    C3_561648837854: null,
-    C3_561648846303: null,
-    C3_561648899389: null,
-    C3_561648926062: null,
-    C3_561648995990: null,
-    C3_561649020170: null,
-    C3_561649023008: null,
-    C3_561649034242: null,
-    C3_561649048171: null,
-    C3_561649105932: null,
-    C3_561649132110: null,
-    C3_561649189367: null,
-    C3_561649232312: null
-  };
+  _data: any = {};
   _dataPropArr = [];
   _theMainModal: boolean = true;//是否打开formresource组件（false为打开）
   path: any;//appConfig中路径
@@ -54,8 +35,8 @@ export class BaseGoodsComponent implements OnInit {
     let path = this.httpSev.path;
     this.url = path.baseUrl + path.getSubData;
     this.requestParams = {
-      resid:561753038288 ,
-      subResid:562075064438,
+      resid:this.resid, //561753038288 ,
+      subResid:this.subResid,// 562075064438,
       hostrecid:this.data['REC_ID'] || '',
       pageIndex: 0,
       pageSize: 50,

@@ -1,4 +1,8 @@
-<video id="video" width="640" height="480" autoplay></video>  
-
-  <canvas id="canvas" width="640" height="480"></canvas>  
-  <button (click)="pause()">拍照</button>
+<div>
+  <video id="video" width="640" height="480"></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+</div>
+<div>
+  <button nz-button (click)="pause()" [nzSize]="'small'">拍照</button>
+  <button nz-button (click)="sureClick()" [nzSize]="'small'">确定</button>
+</div>

@@ -4,28 +4,17 @@ import { GoodsAddComponent } from './pages/goods-add/goods-add.component';
 
 @Component({
   selector: 'app-extend-table',
-  templateUrl:'./extend-table.component.html',
-  styleUrls: ['./extend-table.component.scss']
+  templateUrl:'./extend-table.component.html'
 })
 export class ExtendTableComponent extends LZcommonTableComponent implements OnInit {
+  @Input() pageName = '';
+  @Input() subResid = '';
+  ngOnInit(){
+    super.ngOnInit();
+  }
+
   detailClick(event, data, idx) {
     super.detailClick(event, data, idx);
   }
-
-  // //????
-  // addDataClick() {
-  //  let a = this.modalSev.open({
-  //     title:"add",
-  //     content:GoodsAddComponent,
-  //     onOk(e){
-  //       console.info(e);
-  //     }
-  //   })
-  //   a.subscribe(
-  //     obj => {
-  //       console.info("obj =>",obj)
-  //     }
-  //   )
-  // }
 
 }

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BaseHttpService } from '../../../base-http-service/base-http.service';
 
 @Component({
-  selector: 'app-pass-card',
-  templateUrl: './pass-card.component.html',
-  styleUrls: ['./pass-card.component.scss']
+  selector: 'app-pass-card-no-enter',
+  templateUrl: './pass-card-no-enter.component.html',
+  styleUrls: ['./pass-card-no-enter.component.scss']
 })
-export class PassCardComponent implements OnInit {
+export class PassCardNoEnterComponent implements OnInit {
 
   url: string = '';
   requestParams: any = {};

@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseGoodsComponent } from '../base-goods/base-goods.component';
 import { NEED_ENTER_DATAMAP } from '../providers/data-map.service';
 
 @Component({
-  selector: 'goods-add',
-  templateUrl: '../base-goods/base-goods.component.html'
+  selector: 'goods-operation-noEnter',
+  templateUrl: '../base-goods/base-goods-noEnter.component.html'
 })
-export class GoodsAddComponent extends BaseGoodsComponent implements OnInit {
+export class GoodsOperationNoEnterComponent extends BaseGoodsComponent implements OnInit {
 
   ngOnInit() {
     this._data = NEED_ENTER_DATAMAP;
@@ -19,6 +19,6 @@ export class GoodsAddComponent extends BaseGoodsComponent implements OnInit {
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.AddOneDataEM);
+    super.submitClick(this.httpSev.dataT.FixOneDataEM);
   }
 }

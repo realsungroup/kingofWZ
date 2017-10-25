@@ -7,6 +7,11 @@ import { FormsModule } from '@angular/forms';
 // import { LzcommonTableModule } from '../../../lib/lzTableComponent/commonTable/lzcommon-table.module';
 import { GoodsModule } from '../../extend-table/goods.module';
 import { PassCardComponent } from './pass-card/pass-card.component';
+import { PassCardNoEnterComponent } from './pass-card-no-enter/pass-card-no-enter.component';
+import { SecurityEnterComponent } from './security-enter/security-enter.component';
+import { SecurityOutComponent } from './security-out/security-out.component';
+import { FactoryMoveComponent } from './factory-move/factory-move.component';
+import { MoveInComponent } from './move-in/move-in.component';
 
 @NgModule({
   imports: [
@@ -17,6 +22,6 @@ import { PassCardComponent } from './pass-card/pass-card.component';
     FormsModule,
     GoodsModule
   ],
-  declarations: [PassCardComponent]
+  declarations: [PassCardComponent, PassCardNoEnterComponent, SecurityEnterComponent, SecurityOutComponent, FactoryMoveComponent, MoveInComponent]
 })
 export class ApplyModule { }

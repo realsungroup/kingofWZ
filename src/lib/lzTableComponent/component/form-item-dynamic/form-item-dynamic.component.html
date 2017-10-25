@@ -103,7 +103,7 @@
 </ng-container>
 
 <ng-container *ngIf="webCamera">
-  <lz-modal-frame [width]="1000" (closeEM)="webCamera = false" (cameraImgEM)="cameraImg($event)">
-    <web-camera></web-camera>
+  <lz-modal-frame [width]="1200" (closeEM)="webCamera = false" >
+    <web-camera (cameraImgEM)="cameraImgEM($event)"></web-camera>
   </lz-modal-frame>
 </ng-container>

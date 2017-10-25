@@ -1,15 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BaseGoodsComponent } from '../base-goods/base-goods.component';
-import { NEED_ENTER_DATAMAP } from '../providers/data-map.service';
+import { MOVE_IN_DATAMAP } from '../providers/data-map.service';
 
 @Component({
-  selector: 'goods-add',
-  templateUrl: '../base-goods/base-goods.component.html'
+  selector: 'goods-add-moveIn',
+  templateUrl: '../base-goods/base-goods-moveIn.component.html'
 })
-export class GoodsAddComponent extends BaseGoodsComponent implements OnInit {
+export class GoodsAddMoveInComponent extends BaseGoodsComponent implements OnInit {
 
   ngOnInit() {
-    this._data = NEED_ENTER_DATAMAP;
+    this._data = MOVE_IN_DATAMAP;
     super.ngOnInit();
   }
 

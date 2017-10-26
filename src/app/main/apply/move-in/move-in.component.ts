@@ -20,12 +20,12 @@ export class MoveInComponent implements OnInit {
     let path = this.httpSev.path;
     this.url = path.baseUrl + path.getData;
     this.requestParams = {
-      resid: 561753093403,
+      resid: 561753082516,
       pageIndex: 0,
       pageSize: 10,
       getcolumninfo: 1
     }
-    this.subResid = '562179340123';
+    this.subResid = '562179308149';
     this.requestDataType = this.httpSev.dataT.HostTableDataEM;
   }
 

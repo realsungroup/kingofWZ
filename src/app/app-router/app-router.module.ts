@@ -11,6 +11,7 @@ import { PassCardNoEnterComponent } from '../main/apply/pass-card-no-enter/pass-
 import { SecurityEnterComponent } from '../main/apply/security-enter/security-enter.component';
 import { SecurityOutComponent } from '../main/apply/security-out/security-out.component';
 import { FactoryMoveComponent } from '../main/apply/factory-move/factory-move.component';
+import { MoveInComponent } from '../main/apply/move-in/move-in.component';
 
 import { RsuManageComponent } from '../main/rsu-manage/rsu-edit/rsu-manage.component';
 import { StaffListComponent } from '../main/rsu-manage/staff-list/staff-list.component';
@@ -26,6 +27,7 @@ const childRouts:Array<any> = [
   { path: 'securityEnter',component:SecurityEnterComponent,link:'/main/securityEnter'},
   { path: 'securityOut',component:SecurityOutComponent,link:'/main/securityOut'},  
   { path: 'factoryMove',component:FactoryMoveComponent,link:'/main/factoryMove'},  
+  { path: 'moveIn',component:MoveInComponent,link:'/main/moveIn'},
   
   { path: 'rsu',component:RsuManageComponent,link:'/main/rsu'},
   { path: 'staffList',component:StaffListComponent,link:'/main/staffList'},

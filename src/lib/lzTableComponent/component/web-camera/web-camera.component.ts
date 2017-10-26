@@ -17,36 +17,7 @@ export class WebCameraComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() { }
 
   ngAfterViewInit() {
-    // let $scope: any = {};
-    // this._nav.getMedia = (this._nav.getUserMedia ||
-    //   this._nav.webkitGetUserMedia || this._nav.mozGetUserMedia ||
-    //   this._nav.msGetUserMedia);
-
-    // if (this._nav.getMedia) {
-    //   this._nav.getMedia(
-    //     {
-    //       video: true
-    //     },
-    //     // successCallback
-    //     function (stream) {
-    //       // var s = window.URL.createObjectURL(stream);
-    //       var video: any = document.getElementById('video');
-    //       video.src = window.URL.createObjectURL(stream);
-    //       // mediaStream = stream;
-    //       // track = stream.getTracks()[0];
-    //       // $scope.photoBtnDiable = false;// $scope.$apply();
-    //     },
-    //     // errorCallback
-    //     function (err) {
-    //       // $scope.errorPhoto();
-    //       console.log("The following error occured:" + err);
-    //     });
-    // } else {
-    //   // $scope.errorPhoto();
-    // }
-
-
-    var video: any = document.getElementById('video');
+    let video: any = document.getElementById('video');
     let videoObj = { "video": true };
     
     let errBack = function (error) {
@@ -57,14 +28,14 @@ export class WebCameraComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log("Standarda");
       this._nav.getUserMedia(videoObj,(stream) => {
         // video.src = stream;
-        // this._mediaStreamTrack = typeof stream.stop === 'function' ? stream : stream.getTracks()[0];
+        this._mediaStreamTrack = typeof stream.stop === 'function' ? stream : stream.getTracks()[0];
         video.src = window.URL.createObjectURL(stream);
         video.play();
       }, errBack);
     } else if (this._nav.webkitGetUserMedia) {
       console.log("WebKit-prefixed")
       this._nav.webkitGetUserMedia(videoObj, (stream) => {
-        // this._mediaStreamTrack = typeof stream.stop === 'function' ? stream : stream.getTracks()[0];
+        this._mediaStreamTrack = typeof stream.stop === 'function' ? stream : stream.getTracks()[0];
         video.src = window.URL.createObjectURL(stream);
         video.play();
       }, errBack);
@@ -91,54 +62,14 @@ export class WebCameraComponent implements OnInit, AfterViewInit, OnDestroy {
 
       p.catch(function (err) { console.log(err.name); });
     }
-
-
-    // this._nav.getMedia = this._nav.mediaDevices.getUserMedia;
-    // console.info('this._nav', this._nav, this._nav.mediaDevices, this._nav.mozGetUserMedia);
-    // if (this._nav.getMedia) {
-    //   var p = this._nav.mediaDevices.getUserMedia({ video: true });
-
-    //   p.then(function (mediaStream) {
-    //     var video: any = document.getElementById('video');
-    //     video.src = window.URL.createObjectURL(mediaStream);
-    //     video.onloadedmetadata = function (e) {
-    //       // Do something with the video here.
-    //     };
-    //   });
-
-    //   p.catch(function (err) { console.log(err.name); });
-    //   this._nav.getMedia(
-    //     {
-    //       video: true
-    //     }).then(
-    //     // successCallback
-    //     function (stream) {
-    //       // var s = window.URL.createObjectURL(stream);
-    //       var video: any = document.getElementById('video');
-    //       video.src = window.URL.createObjectURL(stream);
-    //       // mediaStream = stream;
-    //       // track = stream.getTracks()[0];
-    //       // $scope.photoBtnDiable = false;// $scope.$apply();
-    //     }).catch(
-    //     // errorCallback
-    //     function (err) {
-    //       // $scope.errorPhoto();
-    //       console.log("The following error occured:" + err);
-    //     })
-    // }
   }
 
   pause() {
     var canvas: any = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var video: any = document.getElementById('video');
-    ctx.drawImage(video, 0, 0, 400, 304);
+    ctx.drawImage(video, 0, 0, 480, 480);
     this._imgData = canvas.toDataURL("image/png");
-    
-
-    // console.log("img data", imgData)
-    // $scope.closeCamera();
-    // $uibModalInstance.close(canvas.toDataURL("image/png"));
   }
 
   sureClick(){

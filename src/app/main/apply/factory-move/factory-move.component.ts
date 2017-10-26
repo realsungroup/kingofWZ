@@ -20,12 +20,12 @@ export class FactoryMoveComponent implements OnInit {
     let path = this.httpSev.path;
     this.url = path.baseUrl + path.getData;
     this.requestParams = {
-      resid: 561753093403,
+      resid: 561753071073,
       pageIndex: 0,
       pageSize: 10,
       getcolumninfo: 1
     }
-    this.subResid = '562179340123';
+    this.subResid = '562179317919';
     this.requestDataType = this.httpSev.dataT.HostTableDataEM;
   }
 

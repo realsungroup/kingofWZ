@@ -108,7 +108,6 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // this._refreshData();//首次加载数据
     this.getTableCustomButton();
   }
 
@@ -234,18 +233,45 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
     this._httpSev.baseRequest("GET", btnUrl, params, this._httpSev.dataT.UnKnow).subscribe(
       (data: any) => {
         if (data && Array.isArray(data.data) && data.error == 0) {
-          // this._dataSet.forEach(item => {
-          //   item['tableBtnArr'] = data.data;
-          // })
           this._tableBtnArr = data.data;
-        } else {
-          // this.messageSev.error('获取表格中服务器定义按钮失败');
         }
       },
       err => {
         this.messageSev.error('获取表格中服务器定义按钮错误');
       }
     )
+  }
+
+/***********tbody按钮回调************** */
+  orginBtnClick(note){
+    const event = note.$event;
+    const index = note.index;
+    const data = note.data;
+    const idx = note.dataIndex;
+    switch (index){
+      case 0:this.detailClick(event,data,idx);
+      break;
+      case 1:this.operationClick(event,data,idx);
+      break;
+      case 2:this.attachTableClick(event, data, idx);
+      break;
+      case 3:this.deleteClick(data);
+    }
+  }
+
+  customBtnClick(note){
+    const event = note.$event;
+    const index = note.i;
+    const data = note.data;
+    this.btnClick(event,index,data);
+  }
+
+  serveBtnClick(note){
+    const event = note.$event;
+    const btnI = note.btnI;
+    const btn = note.btn;
+    const dataIndex = note.dataIndex;
+    this.tableBtnMenuClick(event,btnI,btn,dataIndex);
   }
 
   /***********按钮及输入框触发事件**************/
@@ -291,6 +317,8 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
     this._theModalName = 'form-readonly';
     this._selectData = Object.assign({}, data, { idx: idx });
   }
+
+  
 
   //操作事件
   operationClick(event, data, idx) {

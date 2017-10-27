@@ -239,9 +239,10 @@
         </app-lzcommon-table>
     </ng-container>
     <ng-container *ngIf="!detail">
-        <app-lzcommon-table [isAttachDataModal]="true" [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType"
+        <!-- <app-lzcommon-table [isAttachDataModal]="true" [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType"
             [addFormName]="'add'" [operationOrginButton]="[false,true,false,false]" [tabs]="tabs">
-        </app-lzcommon-table>
+        </app-lzcommon-table> -->
+        <common-local-data [alertModal]="true" [resid]="subResid" [ldData]="_ldData" (updateEM)="updateData($event)" [addFormName]="'add'" [operationOrginButton]="[true,true,false,true]" [tabs]="tabs"></common-local-data>
     </ng-container>
 </div>
 

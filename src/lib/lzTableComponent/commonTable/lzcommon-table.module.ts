@@ -21,6 +21,10 @@ import { CommonTreeComponent } from '../component/common-tree/common-tree.compon
 import { TableFilterComponent } from '../component/table-filter/table-filter.component';
 import { LzModalFrameComponent } from '../component/lz-modal-frame/lz-modal-frame.component';
 import { WebCameraComponent } from '../component/web-camera/web-camera.component';
+import { CommonLocalDataComponent } from '../extendTable/common-local-data/common-local-data.component';
+import { TableTheadComponent } from '../component/tableComponent/tableThead/table-thead';
+import { TableTbodyComponent } from '../component/tableComponent/tableTbody/table-tbody';
+
 import { MergePipe } from '../pipe/merge.pipe';
 import { RepeatLoadOverDirective } from '../directive/repeat-load-over.directive';
 
@@ -31,7 +35,10 @@ const DIRECTIVES = [
   CommonTreeComponent,
   CommonCardComponent,
   LzModalFrameComponent,
-  WebCameraComponent
+  WebCameraComponent,
+  CommonLocalDataComponent,
+  TableTheadComponent,
+  TableTbodyComponent
 ]
 
 @NgModule({

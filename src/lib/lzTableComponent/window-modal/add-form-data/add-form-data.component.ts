@@ -39,7 +39,7 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
         })
       },
       err => {
-        this.messageSev.error("获取数据失败,错误信息:"+ JSON.stringify(err));
+        this.messageSev.error("获取数据失败,错误信息:" + JSON.stringify(err));
       },
       () => {
 
@@ -48,27 +48,30 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
   }
 
   submitClick() {
-    let path = this.httpSev.appConfig.path;
-    let urlStr = path.baseUrl + path.saveData;
-    let params = {
-      resid: this.resid,
-      data: this.data,
-      formname: this.addFormName
-    }
-    this.httpSev.baseRequest("POST", urlStr, params, this.httpSev.dataT.AddOneDataEM).subscribe(
-      data => {
-        if(data && data.error == 0)  this.eventNoti.emit({ name: "update", data: this.data });//通知父组件更新数据
-        else if(data && data.error < 0) {
-          this.messageSev.error(data['message'])
-        }
-      },
-      err => {
-        this.messageSev.error("添加失败");
-      },
-      () => {
+    if (this.localDataState) this.eventNoti.emit({ name: "add", data: this.data });
+    else {
 
+      let path = this.httpSev.appConfig.path;
+      let urlStr = path.baseUrl + path.saveData;
+      let params = {
+        resid: this.resid,
+        data: this.data,
+        formname: this.addFormName
       }
-    )
+      this.httpSev.baseRequest("POST", urlStr, params, this.httpSev.dataT.AddOneDataEM).subscribe(
+        data => {
+          if (data && data.error == 0) this.eventNoti.emit({ name: "update", data: this.data });//通知父组件更新数据
+          else if (data && data.error < 0) {
+            this.messageSev.error(data['message'])
+          }
+        },
+        err => {
+          this.messageSev.error("添加失败");
+        },
+        () => {
+
+        })
+    }
   }
 
 

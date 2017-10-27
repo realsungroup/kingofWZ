@@ -123,6 +123,18 @@ export class BaseHttpService {
         data.data = data.data.add.concat(data.data.fix);
         data.data = JSON.stringify(data.data);
       }
+      break;
+
+      case dataType.SaveMore:{
+        data.uiver = 200;
+        data.dynlogin = 1;
+        if (Array.isArray(data.data)) {
+          data.data.forEach(item => {
+            item._id = 1;
+          })
+        }
+        data.data = JSON.stringify(data.data);
+      }
 
     }
     return data;

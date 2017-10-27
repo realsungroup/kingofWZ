@@ -19,6 +19,6 @@ export class GoodsAddComponent extends BaseGoodsComponent implements OnInit {
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.AddOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,"added");
   }
 }

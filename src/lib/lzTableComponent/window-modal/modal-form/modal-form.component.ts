@@ -34,6 +34,7 @@ export class ModalFormComponent implements OnInit, OnDestroy {
   path: any;//appConfig中路径
   advDictionaryListData: any;//传递给formresource组件的数据
 
+  @Input() localDataState = false;//本地数据管理状态
   @Input() alertModal: boolean = false;
   @Input() isMainData: boolean = false;//是否是主表数据
   @Input() isCustomPosition: boolean = false;//是否组件自定义定位
@@ -185,21 +186,24 @@ export class ModalFormComponent implements OnInit, OnDestroy {
 
   //提交事件(主表)
   submitClick() {
-    let url = this.path.baseUrl + this.path.saveData;
-    let params = {
-      resid: this.resid,
-      data: this.data
-    }
-
-    this.httpSev.baseRequest("POST", url, params, this.httpSev.dataT.FixOneDataEM).subscribe(
-      data => {
-        this.eventNoti.emit({ name: "update", data: this.data });//通知父组件更新数据
-        // alert("save success" + JSON.stringify(data));
-      },
-      err => {
-        this.messageSev.error("保存错误，错误信息： " + JSON.stringify(err));
+    if (this.localDataState) this.eventNoti.emit({ name: "modify", data: this.data });
+    else {
+      let url = this.path.baseUrl + this.path.saveData;
+      let params = {
+        resid: this.resid,
+        data: this.data
       }
-    )
+
+      this.httpSev.baseRequest("POST", url, params, this.httpSev.dataT.FixOneDataEM).subscribe(
+        data => {
+          this.eventNoti.emit({ name: "update", data: this.data });//通知父组件更新数据
+          // alert("save success" + JSON.stringify(data));
+        },
+        err => {
+          this.messageSev.error("保存错误，错误信息： " + JSON.stringify(err));
+        }
+      )
+    }
   }
 
   //提交事件(附表)

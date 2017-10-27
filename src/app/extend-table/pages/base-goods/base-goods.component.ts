@@ -9,6 +9,7 @@ import { NzMessageService, NzModalService } from 'ng-zorro-antd';
   styleUrls: ['./base-goods.component.scss']
 })
 export class BaseGoodsComponent implements OnInit {
+  _subDataModify = [];
 
   @Input() detail = false;
   @Input() resid = '';
@@ -28,6 +29,7 @@ export class BaseGoodsComponent implements OnInit {
   url: string = '';
   requestParams: any = {};
   requestDataType: number = -1;
+  _ldData = [];
 
   constructor(protected httpSev: BaseHttpService, private messageSev: NzMessageService, private modalSev: NzModalService) { }
 
@@ -38,8 +40,8 @@ export class BaseGoodsComponent implements OnInit {
       resid:this.resid, //561753038288 ,
       subResid:this.subResid,// 562075064438,
       hostrecid:this.data['REC_ID'] || '',
-      pageIndex: 0,
-      pageSize: 50,
+      // pageIndex: 0,
+      // pageSize: 50,
       // getcolumninfo: 1
     }
     this.requestDataType = this.httpSev.dataT.AttachTableDataEM;
@@ -48,7 +50,20 @@ export class BaseGoodsComponent implements OnInit {
       formName: "default",
     }]
 
-    this.getKeysData(this.resid)
+    this.getKeysData(this.resid);
+
+    this.httpSev.baseRequest("GET",this.url,this.requestParams,this.requestDataType).subscribe(
+      data => {
+        if(data && Array.isArray(data.data)){
+          this._ldData = data.data;
+        }
+      }
+    )
+  }
+
+  updateData(note){
+    this._subDataModify = note;
+    console.info("note",note);
   }
 
   //获取窗体的数据
@@ -138,12 +153,25 @@ export class BaseGoodsComponent implements OnInit {
   }
 
   //提交事件(附表)
-  submitClick(type) {
+  submitClick(type,hostType?) {
+    console.log("subdata",this._subDataModify)
+    this._subDataModify.forEach(element => {
+      element._id = 1;
+    });
     let path = this.httpSev.path;
     let url = path.baseUrl + path.saveData;
+    this.data[this.subResid + ''] = this._subDataModify;
+    this.data._id = 1;
+    if(hostType == 'added'){
+      this.data._state = "added";
+      this.data = [this.data];
+    }else {
+      this.data._state = "modified";
+    }
     let params = {
       resid: this.resid,
-      data: this.data
+      data: this.data,
+      subresid:this.subResid
     }
 
     this.httpSev.baseRequest("POST", url, params, type).subscribe(

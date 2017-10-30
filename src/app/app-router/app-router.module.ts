@@ -13,27 +13,15 @@ import { SecurityOutComponent } from '../main/apply/security-out/security-out.co
 import { FactoryMoveComponent } from '../main/apply/factory-move/factory-move.component';
 import { MoveInComponent } from '../main/apply/move-in/move-in.component';
 
-import { RsuManageComponent } from '../main/rsu-manage/rsu-edit/rsu-manage.component';
-import { StaffListComponent } from '../main/rsu-manage/staff-list/staff-list.component';
-import { StaffListExportComponent } from '../main/rsu-manage/staff-list-export/staff-list-export.component';
-import { TeamEditComponent } from '../main/rsu-manage/team-edit/team-edit.component';
-import { RsuPendComponent } from '../main/rsu-manage/rsu-pend/rsu-pend.component';
-
 const childRouts:Array<any> = [
-  // { path: '', redirectTo: 'rsu', pathMatch: 'full'},
+  // { path: '', redirectTo: 'passCard', pathMatch: 'full'},
   { path: 'clearCache',component:ClearCacheComponent,link:'/main/clearCache'},
   { path: 'passCard',component:PassCardComponent,link:'/main/passCard'},
   { path: 'passCardNoEnter',component:PassCardNoEnterComponent,link:'/main/passCardNoEnter'},
   { path: 'securityEnter',component:SecurityEnterComponent,link:'/main/securityEnter'},
   { path: 'securityOut',component:SecurityOutComponent,link:'/main/securityOut'},  
   { path: 'factoryMove',component:FactoryMoveComponent,link:'/main/factoryMove'},  
-  { path: 'moveIn',component:MoveInComponent,link:'/main/moveIn'},
-  
-  { path: 'rsu',component:RsuManageComponent,link:'/main/rsu'},
-  { path: 'staffList',component:StaffListComponent,link:'/main/staffList'},
-  { path: 'staffListExport',component:StaffListExportComponent,link:'/main/staffListExport'},
-  { path: 'teamEdit',component:TeamEditComponent,link:'/main/teamEdit'},
-  { path: 'rsuPend',component:RsuPendComponent,link:'/main/rsuPend'}
+  { path: 'moveIn',component:MoveInComponent,link:'/main/moveIn'}
 ]
 
 const routes: Array<any> = [

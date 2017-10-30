@@ -15,8 +15,7 @@ export class GoodsDetailComponent extends BaseGoodsComponent implements OnInit {
     super.ngOnInit();
     this.detail = true;
   }
-
-  //返回事件
+  
   close() {
     this.closeNoti.emit();
   }

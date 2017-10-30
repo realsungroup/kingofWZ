@@ -128,28 +128,28 @@
 </div>
 
 <ng-container *ngIf="_theModalName == 'form-readonly'" [ngSwitch]="pageName">
-  <goods-detail *ngSwitchCase="'needEnter'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail>
-  <goods-detail-noEnter *ngSwitchCase="'noEnter'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-noEnter>  
-  <goods-detail-securityEnter *ngSwitchCase="'securityEnter'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-securityEnter>  
-  <goods-detail-securityOut *ngSwitchCase="'securityOut'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-securityOut>  
-  <goods-detail-factoryMove *ngSwitchCase="'factoryMove'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-factoryMove>  
-  <goods-detail-moveIn *ngSwitchCase="'moveIn'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-moveIn>    
+  <goods-detail *ngSwitchCase="'needEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail>
+  <goods-detail-noEnter *ngSwitchCase="'noEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-noEnter>  
+  <goods-detail-securityEnter *ngSwitchCase="'securityEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-securityEnter>  
+  <goods-detail-securityOut *ngSwitchCase="'securityOut'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-securityOut>  
+  <goods-detail-factoryMove *ngSwitchCase="'factoryMove'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-factoryMove>  
+  <goods-detail-moveIn *ngSwitchCase="'moveIn'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (closeNoti)="windowModalNoti($event)"></goods-detail-moveIn>    
 </ng-container>
 
 <ng-container *ngIf="_theModalName == 'form'" [ngSwitch]="pageName">
-  <goods-operation *ngSwitchCase="'needEnter'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation>
-  <goods-operation-noEnter *ngSwitchCase="'noEnter'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-noEnter>  
-  <goods-operation-securityEnter *ngSwitchCase="'securityEnter'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-securityEnter>  
-  <goods-operation-securityOut *ngSwitchCase="'securityOut'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-securityOut>  
-  <goods-operation-factoryMove *ngSwitchCase="'factoryMove'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-factoryMove>  
-  <goods-operation-moveIn *ngSwitchCase="'moveIn'" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-moveIn>    
+  <goods-operation *ngSwitchCase="'needEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-operation>
+  <goods-operation-noEnter *ngSwitchCase="'noEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [data]="_selectData" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-operation-noEnter>  
+  <goods-operation-securityEnter *ngSwitchCase="'securityEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-securityEnter>  
+  <goods-operation-securityOut *ngSwitchCase="'securityOut'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-securityOut>  
+  <goods-operation-factoryMove *ngSwitchCase="'factoryMove'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-factoryMove>  
+  <goods-operation-moveIn *ngSwitchCase="'moveIn'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" [data]="_selectData" (eventNoti)="modalFormNoti($event)"></goods-operation-moveIn>    
 </ng-container>
 
 <ng-container *ngIf="_theModalName == 'addDataForm'" [ngSwitch]="pageName">
-  <goods-add *ngSwitchCase="'needEnter'" [resid]="resid" [subResid]="subResid"  [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add>
-  <goods-add-noEnter *ngSwitchCase="'noEnter'" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-noEnter>
-  <goods-add-securityEnter *ngSwitchCase="'securityEnter'" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-securityEnter>
-  <goods-add-securityOut *ngSwitchCase="'securityOut'" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-securityOut>
-  <goods-add-factoryMove *ngSwitchCase="'factoryMove'" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-factoryMove>
-  <goods-add-moveIn *ngSwitchCase="'moveIn'" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-moveIn>
+  <goods-add *ngSwitchCase="'needEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid"  [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add>
+  <goods-add-noEnter *ngSwitchCase="'noEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-noEnter>
+  <goods-add-securityEnter *ngSwitchCase="'securityEnter'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-securityEnter>
+  <goods-add-securityOut *ngSwitchCase="'securityOut'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-securityOut>
+  <goods-add-factoryMove *ngSwitchCase="'factoryMove'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-factoryMove>
+  <goods-add-moveIn *ngSwitchCase="'moveIn'" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [tabs]="tabs" [resid]="resid" [subResid]="subResid" [addFormName]="addFormName" (eventNoti)="modalFormNoti($event)"></goods-add-moveIn>
 </ng-container>

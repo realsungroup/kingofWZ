@@ -13,9 +13,119 @@
         "clearCache": "api/100/table/ClearCache",
         "getButton": "api/menu/GetButton",
         "dealButton": "api/menu/DealButton",
-        "exportXls":"api/100/table/ExportTableData",
-        "fileUrl":"http://kingofdinner.realsun.me:8081/",
-        "timeOut":"api/100/table/SetTimeout"
+        "exportXls": "api/100/table/ExportTableData",
+        "fileUrl": "http://kingofdinner.realsun.me:8081/",
+        "timeOut": "api/100/table/SetTimeout"
     },
-    "enterprisecode": "9063"
+    "enterprisecode": "9063",
+    "pages": {
+        "passCard": {
+            "requestParams": {
+                "resid": 561753038288,
+                "pageIndex": 0,
+                "pageSize": 10,
+                "getcolumninfo": 1
+            },
+            "addFormName": "add",
+            "subResid": 562075064438,
+            "isEditCustomPosition": false,
+            "isAddCustomPosition": false,
+            "tabs": [
+                {
+                    "isSubForm": false,
+                    "formName": "default"
+                }
+            ]
+        },
+        "passCardNoEnter":{
+            "requestParams": {
+                "resid": 561753038288,
+                "pageIndex": 0,
+                "pageSize": 10,
+                "getcolumninfo": 1
+            },
+            "addFormName": "add",
+            "subResid": 562075064438,
+            "isEditCustomPosition": false,
+            "isAddCustomPosition": false,
+            "tabs": [
+                {
+                    "isSubForm": false,
+                    "formName": "default"
+                }
+            ]
+        },
+        "factoryMove":{
+            "requestParams": {
+                "resid": 561753071073,
+                "pageIndex": 0,
+                "pageSize": 10,
+                "getcolumninfo": 1
+            },
+            "addFormName": "add",
+            "subResid": 562179317919,
+            "isEditCustomPosition": false,
+            "isAddCustomPosition": false,
+            "tabs": [
+                {
+                    "isSubForm": false,
+                    "formName": "default"
+                }
+            ]
+        },
+        "moveIn":{
+            "requestParams": {
+                "resid": 561753082516,
+                "pageIndex": 0,
+                "pageSize": 10,
+                "getcolumninfo": 1
+            },
+            "addFormName": "add",
+            "subResid": 562179308149,
+            "isEditCustomPosition": false,
+            "isAddCustomPosition": false,
+            "tabs": [
+                {
+                    "isSubForm": false,
+                    "formName": "default"
+                }
+            ]
+        },
+        "securityEnter":{
+            "requestParams": {
+                "resid": 561753056393,
+                "pageIndex": 0,
+                "pageSize": 10,
+                "getcolumninfo": 1
+            },
+            "addFormName": "add",
+            "subResid": 562179293341,
+            "isEditCustomPosition": false,
+            "isAddCustomPosition": false,
+            "tabs": [
+                {
+                    "isSubForm": false,
+                    "formName": "default"
+                }
+            ]
+        },
+        "securityOut":{
+            "requestParams": {
+                "resid": 561753093403,
+                "pageIndex": 0,
+                "pageSize": 10,
+                "getcolumninfo": 1
+            },
+            "addFormName": "add",
+            "subResid": 562179340123,
+            "isEditCustomPosition": false,
+            "isAddCustomPosition": false,
+            "tabs": [
+                {
+                    "isSubForm": false,
+                    "formName": "default"
+                }
+            ]
+        }
+    }
 }

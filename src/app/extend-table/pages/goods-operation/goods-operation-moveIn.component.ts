@@ -19,6 +19,6 @@ export class GoodsOperationMoveInComponent extends BaseGoodsComponent implements
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.FixOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,'modified');
   }
 }

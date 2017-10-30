@@ -6,7 +6,6 @@ import { Component,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'app works!';
   constructor() {
     
   }

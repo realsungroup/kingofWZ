@@ -72,7 +72,7 @@
 
   <!-- 图片选择 -->
   <ng-container *ngSwitchCase="formItemEM.ImageSelect">
-    <nz-input-group [nzCompact]="true" class="position-a" [ngStyle]="customStyle(title)">
+    <nz-input-group [nzCompact]="true" class="position-a" [ngStyle]="customStyle(title,'group')">
       <input [attr.readonly]="title.FrmReadonly" [attr.disabled]="true" [(ngModel)]="obj" (ngModelChange)="modelChange($event,formItemEM.ImageSelect)"
         style="width: 50%;" nz-input>
       <button nz-button>
@@ -88,7 +88,7 @@
   </ng-container>
 
   <!-- 拍照 -->
-  <ng-container *ngSwitchCase="formItemEM.ImgCamera">
+  <div class="position-a" [ngStyle]="customStyle(title,'group')" *ngSwitchCase="formItemEM.ImgCamera">
     <nz-input-group [nzSize]="'large'" [nzCompact]="true">
       <input [attr.readonly]="title.FrmReadonly" [(ngModel)]="obj" (ngModelChange)="modelChange($event,formItemEM.AdvDictionary)"
         style="width: 50%;" nz-input>
@@ -96,7 +96,7 @@
         <i class="anticon anticon-camera-o"></i>
       </button>
     </nz-input-group>
-  </ng-container>
+  </div>
 
 </ng-container>
 

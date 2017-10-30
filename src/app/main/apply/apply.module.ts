@@ -4,7 +4,6 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-// import { LzcommonTableModule } from '../../../lib/lzTableComponent/commonTable/lzcommon-table.module';
 import { GoodsModule } from '../../extend-table/goods.module';
 import { PassCardComponent } from './pass-card/pass-card.component';
 import { PassCardNoEnterComponent } from './pass-card-no-enter/pass-card-no-enter.component';

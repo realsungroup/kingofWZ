@@ -19,6 +19,6 @@ export class GoodsOperationFactoryMoveComponent extends BaseGoodsComponent imple
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.FixOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,'modified');
   }
 }

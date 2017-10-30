@@ -19,6 +19,6 @@ export class GoodsOperationSecurityEnterComponent extends BaseGoodsComponent imp
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.FixOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,'modified');
   }
 }

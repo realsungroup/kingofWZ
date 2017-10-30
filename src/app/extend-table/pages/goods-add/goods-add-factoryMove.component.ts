@@ -19,6 +19,6 @@ export class GoodsAddFactoryMoveComponent extends BaseGoodsComponent implements 
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.AddOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,"added");
   }
 }

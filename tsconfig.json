@@ -28,6 +28,9 @@
       ],
       "@helpers/*": [
         "helpers/*"
+      ],
+      "@lzTable/*":[
+        "lib/lzTableComponent/*"
       ]
     }
   }

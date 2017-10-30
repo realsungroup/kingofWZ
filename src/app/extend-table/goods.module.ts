@@ -36,8 +36,6 @@ import { ExtendTableComponent } from './extend-table.component';
 import { LzcommonTableModule } from '../../lib/lzTableComponent/commonTable/lzcommon-table.module';
 import { BaseGoodsComponent } from './pages/base-goods/base-goods.component';
 
-// import { DataMapService } from './pages/providers/data-map.service';
-
 const COMPONENTS = [
   GoodsAddNoEnterComponent,
   GoodsOperationNoEnterComponent,

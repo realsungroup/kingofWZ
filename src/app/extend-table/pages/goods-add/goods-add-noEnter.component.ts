@@ -19,6 +19,6 @@ export class GoodsAddNoEnterComponent extends BaseGoodsComponent implements OnIn
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.AddOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,"added");
   }
 }

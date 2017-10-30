@@ -1,4 +1,4 @@
-<div [class.hidden]="!_theMainModal" class="window-model-container">
+<div class="window-model-container">
     <div class="components-table-demo-control-bar">
         <form nz-form [nzLayout]="'inline'">
             <div nz-row nz-form-item>
@@ -27,7 +27,7 @@
                             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
                     </ng-container>
                 </td>
-                <td nz-td>物资带入人</td>
+                <td nz-td>物资带出人</td>
                 <td nz-td>
                     <ng-container *ngIf="detail">
                         {{data['C3_561648718493']}}
@@ -234,16 +234,15 @@
         </tbody>
     </nz-table>
 
-    <ng-container *ngIf="detail">
-        <app-lzcommon-table [isAttachDataModal]="true" [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType">
-        </app-lzcommon-table>
-    </ng-container>
-    <ng-container *ngIf="!detail">
-        <!-- <app-lzcommon-table [isAttachDataModal]="true" [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType"
-            [addFormName]="'add'" [operationOrginButton]="[false,true,false,false]" [tabs]="tabs">
-        </app-lzcommon-table> -->
-        <common-local-data [alertModal]="true" [resid]="subResid" [ldData]="_ldData" (updateEM)="updateData($event)" [addFormName]="'add'" [operationOrginButton]="[true,true,false,true]" [tabs]="tabs"></common-local-data>
-    </ng-container>
+    <div class="child-table">
+        <ng-container *ngIf="detail">
+            <app-lzcommon-table [isAttachDataModal]="true" [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType" [operationOrginButton]="[true,false,false,false]" [tabs]="tabs">
+            </app-lzcommon-table>
+        </ng-container>
+        <ng-container *ngIf="!detail">
+            <common-local-data [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [alertModal]="true" [resid]="subResid" [ldData]="_ldData" (updateEM)="updateData($event)" [addFormName]="addFormName" [operationOrginButton]="[true,true,false,true]" [tabs]="tabs"></common-local-data>
+        </ng-container>
+    </div>
 </div>
 
 

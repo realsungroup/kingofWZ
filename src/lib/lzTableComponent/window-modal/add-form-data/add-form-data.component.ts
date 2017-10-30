@@ -19,12 +19,16 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
   titleArray = [];
   titleElementArray = [];
   data: any = {};
+  formHeight = 0;
 
   ngOnInit() {
     this.getData(this.addFormName, this.resid).subscribe(
       data => {
         this.titleArray = data.data.columns.filter(item => (item.ColName && item.ColName.length) || (item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol) || (item.FrmFieldFormType == FormItemElementEM.ImageForInputform));
         this.titleElementArray = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.Label);
+
+        let formSelfArr = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.FormSelf);
+        if (Array.isArray(formSelfArr) && formSelfArr[0]) this.formHeight = formSelfArr[0]["FrmHeight"] || 0;
 
         // let imgElementArr = data.data.columns.filter(item => item.FrmFieldFormType == FormItemElementEM.ImageForUrlCol);
         // imgElementArr = this.imgElementAddColName(imgElementArr);

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LZcommonTableComponent } from '../../commonTable/lzcommon-table.component';
+import { ADD, MODIF, REMOVE } from './data-state.config';
 
 @Component({
   selector: 'common-local-data',
@@ -15,7 +16,6 @@ export class CommonLocalDataComponent extends LZcommonTableComponent implements 
     del: []
   };
   _delArr = [];
-  // @Input() _ld_resid = '';
   @Input() set ldData(value) {
     if (Array.isArray(value)) this._dataSet = value;
     this._ld_copyData = [...this._dataSet];
@@ -52,7 +52,7 @@ export class CommonLocalDataComponent extends LZcommonTableComponent implements 
   }
 
   _refreshData() {
-    this._dataSet = [...this._dataSet]; 
+    this._dataSet = [...this._dataSet];
   }
 
   deleteClick(data, idx?) {
@@ -61,8 +61,8 @@ export class CommonLocalDataComponent extends LZcommonTableComponent implements 
       content: "确认删除此条信息",
       onOk: () => {
         let data = this._dataSet[idx];
-        if (data._state == 'modify' || !data._state) {
-          data._state = 'removed';
+        if (data._state == MODIF || !data._state) {
+          data._state = REMOVE;
           this._delArr.push(data);
         }
         this._dataSet.splice(idx, 1);
@@ -78,7 +78,7 @@ export class CommonLocalDataComponent extends LZcommonTableComponent implements 
       let updateData = notiObj.data;
       switch (notiObj.name) {
         case 'add': {
-          updateData._state = 'added'
+          updateData._state = ADD
           this._dataSet.push(updateData);
           this._refreshData();
           this.windowModalNoti();
@@ -87,7 +87,7 @@ export class CommonLocalDataComponent extends LZcommonTableComponent implements 
           break;
         case 'modify': {
           const idx = notiObj.data.idx;
-          updateData._state = 'modified'
+          updateData._state = MODIF
           this._dataSet[idx] = updateData;
           this._refreshData();
           this.windowModalNoti();
@@ -100,9 +100,7 @@ export class CommonLocalDataComponent extends LZcommonTableComponent implements 
   }
 
   sendNotificationForDatasetChange() {
-    let arr = this._dataSet.filter(item => item._state == 'modified' || item._state == 'removed');
-    let addArr = this._dataSet.filter(item => item._state == 'added');
-    arr = arr.concat(addArr);
+    let arr = this._dataSet.filter(item => item._state == MODIF || item._state == ADD);
     arr = arr.concat(this._delArr);
     this.updateEM.emit(arr);
   }

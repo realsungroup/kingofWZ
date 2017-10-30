@@ -19,6 +19,6 @@ export class GoodsAddMoveInComponent extends BaseGoodsComponent implements OnIni
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.AddOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,"added");
   }
 }

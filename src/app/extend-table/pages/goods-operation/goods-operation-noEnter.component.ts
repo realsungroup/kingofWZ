@@ -19,6 +19,6 @@ export class GoodsOperationNoEnterComponent extends BaseGoodsComponent implement
   }
 
   submitClick(){
-    super.submitClick(this.httpSev.dataT.FixOneDataEM);
+    super.submitClick(this.httpSev.dataT.SaveMore,'modified');
   }
 }

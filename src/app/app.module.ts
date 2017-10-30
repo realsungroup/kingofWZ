@@ -34,7 +34,7 @@ import { FloatBuildPipe } from './shared/pipes/float-build.pipe';
     LoginModule,
     BrowserAnimationsModule
   ],
-  providers: [BaseHttpService, AppService,{provide: LocationStrategy,useClass: HashLocationStrategy}],
+  providers: [BaseHttpService,AppService,{provide: LocationStrategy,useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

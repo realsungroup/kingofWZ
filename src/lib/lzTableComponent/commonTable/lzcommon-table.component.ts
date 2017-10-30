@@ -24,7 +24,6 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
 
   _filterData: Array<any> = [];//下拉菜单数据
   _filterSelectObj: any = {};//下拉菜单选择的对象
-
   _tableBtnArr: Array<any> = [];//表格后台自定义按钮
 
   //公共参数
@@ -33,7 +32,6 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
   @Input() isExport: boolean = false;
   @Input() isAutoData: boolean = false;//是否自动获取数据
   @Input() isAttachDataModal: boolean = false;//是否是附表数据
-
   @Input() operationButton: Array<any>;//自定义按钮对象{title:'',type:'',loading:true}
   @Output() operationBtnNoti = new EventEmitter();//自定义按钮回调方法
 
@@ -46,7 +44,6 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
   @Input() filterDateCmswhere: string = '';//时间cmswhere
   @Input() filterString: string = '';//下拉菜单过滤字段
   @Input() filterData: Array<any> = [];//下拉菜单数据
-
   @Input() tableBtnStrArr: Array<string> = [];//服务器按钮组绑定字段(5个)
 
   // 自动获取数据(所需参数)

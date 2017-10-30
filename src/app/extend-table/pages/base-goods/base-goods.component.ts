@@ -18,6 +18,8 @@ export class BaseGoodsComponent implements OnInit {
   @Input() data: any = {};
   @Input() tabs: any[] = [];
   @Input() addFormName:string = '';
+  @Input() isEditCustomPosition = false;
+  @Input() isAddCustomPosition = false;
 
   _data: any = {};
   _dataPropArr = [];
@@ -37,18 +39,15 @@ export class BaseGoodsComponent implements OnInit {
     let path = this.httpSev.path;
     this.url = path.baseUrl + path.getSubData;
     this.requestParams = {
-      resid:this.resid, //561753038288 ,
-      subResid:this.subResid,// 562075064438,
-      hostrecid:this.data['REC_ID'] || '',
-      // pageIndex: 0,
-      // pageSize: 50,
-      // getcolumninfo: 1
+      resid:this.resid,
+      subResid:this.subResid,
+      hostrecid:this.data['REC_ID'] || ''
     }
     this.requestDataType = this.httpSev.dataT.AttachTableDataEM;
-    this.tabs = [{
-      isSubForm: false,
-      formName: "default",
-    }]
+    // this.tabs = [{
+    //   isSubForm: false,
+    //   formName: "default",
+    // }]
 
     this.getKeysData(this.resid);
 
@@ -164,10 +163,10 @@ export class BaseGoodsComponent implements OnInit {
     this.data._id = 1;
     if(hostType == 'added'){
       this.data._state = "added";
-      this.data = [this.data];
     }else {
       this.data._state = "modified";
     }
+    this.data = [this.data];
     let params = {
       resid: this.resid,
       data: this.data,

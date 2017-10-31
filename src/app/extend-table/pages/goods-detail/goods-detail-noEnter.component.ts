@@ -17,7 +17,7 @@ export class GoodsDetailNoEnterComponent extends BaseGoodsComponent implements O
   }
 
   //返回事件
-  close() {
+  goBack() {
     this.closeNoti.emit();
   }
 

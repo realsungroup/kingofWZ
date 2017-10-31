@@ -16,7 +16,7 @@ export class GoodsDetailSecurityOutComponent extends BaseGoodsComponent implemen
     this.detail = true;
   }
 
-  close() {
+  goBack() {
     this.closeNoti.emit();
   }
 

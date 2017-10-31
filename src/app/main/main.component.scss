@@ -59,6 +59,14 @@
     }
 }
 
+.menu-trigger-content{
+    width: 80px;
+}
+
+.nav-content{
+    width: calc(100% - 80px);
+}
+
 :host ::ng-deep .trigger {
     font-size: 18px;
     line-height: 64px;

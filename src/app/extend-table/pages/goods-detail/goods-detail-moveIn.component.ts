@@ -17,7 +17,7 @@ export class GoodsDetailMoveInComponent extends BaseGoodsComponent implements On
   }
 
   //返回事件
-  close() {
+  goBack() {
     this.closeNoti.emit();
   }
 

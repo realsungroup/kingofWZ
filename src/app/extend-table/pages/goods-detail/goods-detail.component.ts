@@ -16,7 +16,7 @@ export class GoodsDetailComponent extends BaseGoodsComponent implements OnInit {
     this.detail = true;
   }
   
-  close() {
+  goBack() {
     this.closeNoti.emit();
   }
 

@@ -50,7 +50,7 @@ export class WindowModalFormReadonlyComponent implements OnInit {
   }
 
   //返回事件
-  close() {
+  goBack() {
     this.closeNoti.emit();
   }
 }

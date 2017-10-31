@@ -53,10 +53,10 @@
   <nz-layout>
     <nz-header style="background: #fff; padding:0;">
       <div nz-row [nzType]="'flex'" [nzJustify]="'start'" [nzAlign]="'middle'">
-          <div nz-col [nzSpan]="2" title="菜单开合">
+          <div nz-col title="菜单开合" class="menu-trigger-content">
             <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
           </div>
-          <div nz-col [nzSpan]="22">
+          <div nz-col class="nav-content">
             <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" style="line-height: 64px;">
               <div class="nav-container">
                 <button nz-button [routerLink]="'/main/clearCache'" [nzShape]="'circle'" title="清空缓存">

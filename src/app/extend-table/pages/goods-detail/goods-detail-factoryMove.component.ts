@@ -16,7 +16,7 @@ export class GoodsDetailFactoryMoveComponent extends BaseGoodsComponent implemen
     this.detail = true;
   }
 
-  close() {
+  goBack() {
     this.closeNoti.emit();
   }
 

@@ -80,14 +80,6 @@
             </button>
           </td>
   
-          <!-- 表格自定义按钮组 -->
-          <ng-container *ngFor="let btn of _tableBtnArr;let btnI = index">
-            <td nz-td *ngIf="btn.Show && btn.Type == 1">
-              <button nz-button (click)="tableBtnMenuClick($event,btnI,btn,dataIndex)">
-                <span>{{btn.Name1}}</span>
-              </button>
-            </td>
-          </ng-container>
         </tr>
       </tbody>
     </nz-table>

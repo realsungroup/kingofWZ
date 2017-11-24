@@ -70,12 +70,13 @@
           <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" (click)="btnClick($event,i,data)"><span>{{btn.title}}</span></button>
         </td>
 
-        <!-- ±í¸ñ×Ô¶¨Òå°´Å¥×é -->
         <ng-container *ngFor="let btn of _tableBtnArr;let btnI = index">
-          <td nz-td *ngIf="btn.Show && btn.Type == 1">
-            <button nz-button (click)="tableBtnMenuClick($event,btnI,btn,dataIndex)"><span>{{btn.Name1}}</span></button>
+          <td nz-td *ngIf="btn.Show && btn.Type == 1 && tableBtnStrArr[btnI] && data[tableBtnStrArr[btnI]] == 'Y'">
+              <button nz-button (click)="serveMenuClick($event,btnI,btn,dataIndex)">
+                  <span>{{btn.Name1}}</span>
+              </button>
           </td>
-        </ng-container>
+      </ng-container>
       </tr>
     </tbody>
   </nz-table>
@@ -115,12 +116,13 @@
           <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" (click)="btnClick($event,i,data)"><span>{{btn.title}}</span></button>
         </td>
 
-        <!-- ±í¸ñ×Ô¶¨Òå°´Å¥×é -->
         <ng-container *ngFor="let btn of _tableBtnArr;let btnI = index">
-          <td nz-td *ngIf="btn.Show && btn.Type == 1">
-            <button nz-button (click)="tableBtnMenuClick($event,btnI,btn,dataIndex)"><span>{{btn.Name1}}</span></button>
+          <td nz-td *ngIf="btn.Show && btn.Type == 1 && tableBtnStrArr[btnI] && data[tableBtnStrArr[btnI]] == 'Y'">
+              <button nz-button (click)="serveMenuClick($event,btnI,btn,dataIndex)">
+                  <span>{{btn.Name1}}</span>
+              </button>
           </td>
-        </ng-container>
+      </ng-container>
       </tr>
     </tbody>
   </nz-table>

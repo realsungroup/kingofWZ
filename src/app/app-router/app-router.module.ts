@@ -12,7 +12,8 @@ import { SecurityEnterComponent } from '../main/apply/security-enter/security-en
 import { SecurityOutComponent } from '../main/apply/security-out/security-out.component';
 import { FactoryMoveComponent } from '../main/apply/factory-move/factory-move.component';
 import { MoveInComponent } from '../main/apply/move-in/move-in.component';
-
+import { SecurityComponent }from '../main/apply/security/security.component';
+import { SecurityPCheckComponent }from '../main/apply/security-p-check/security-p-check.component'
 const childRouts:Array<any> = [
   // { path: '', redirectTo: 'passCard', pathMatch: 'full'},
   { path: 'clearCache',component:ClearCacheComponent,link:'/main/clearCache'},
@@ -21,8 +22,9 @@ const childRouts:Array<any> = [
   { path: 'securityEnter',component:SecurityEnterComponent,link:'/main/securityEnter'},
   { path: 'securityOut',component:SecurityOutComponent,link:'/main/securityOut'},  
   { path: 'factoryMove',component:FactoryMoveComponent,link:'/main/factoryMove'},  
-  { path: 'moveIn',component:MoveInComponent,link:'/main/moveIn'}
-]
+  { path: 'moveIn',component:MoveInComponent,link:'/main/moveIn'},
+  { path:'securitycheck',component:SecurityComponent,link:'/main/securitycheck'},
+{ path:'securityPcheck',component:SecurityPCheckComponent,link:'/main/securityPcheck'}]
 
 const routes: Array<any> = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},

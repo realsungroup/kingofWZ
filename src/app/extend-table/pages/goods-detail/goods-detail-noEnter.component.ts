@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BaseGoodsComponent } from '../base-goods/base-goods.component';
-import { NEED_ENTER_DATAMAP } from '../providers/data-map.service';
+import { NO_ENTER_DATAMAP } from '../providers/data-map.service';
 
 @Component({
   selector: 'goods-detail-noEnter',
@@ -11,7 +11,7 @@ export class GoodsDetailNoEnterComponent extends BaseGoodsComponent implements O
   @Output() closeNoti = new EventEmitter();
 
   ngOnInit() {
-    this._data = NEED_ENTER_DATAMAP;
+    this._data = NO_ENTER_DATAMAP;
     super.ngOnInit();
     this.detail = true;
   }

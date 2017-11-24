@@ -42,8 +42,8 @@
     <thead nz-thead table-thead [titleArr]="titleArr" (updateDataEM)="tableFilterUpdateData($event)" [copyData]="copyData" [filterColArr]="filterColArr"
       [sortColArr]="sortColArr"></thead>
 
-    <tbody nz-tbody table-tbody [tableData]="_dataSet" [titleArr]="titleArr" [operationOrginButton]="operationOrginButton" [operationButton]="operationButton"
-      [tableBtnArr]="tableBtnArr" (orginBtnClickEM)="orginBtnClick($event)" (customBtnClickEM)="customBtnClick($event)" (serveBtnClickEM)="serveBtnClick($event)"></tbody>
+    <tbody nz-tbody table-tbody [tableData]="_dataSet" [titleArr]="titleArr" [operationOrginButton]="operationOrginButton" [operationButton]="operationButton" [tableBtnStrArr]="tableBtnStrArr"
+      [tableBtnArr]="_tableBtnArr" (orginBtnClickEM)="orginBtnClick($event)" (customBtnClickEM)="customBtnClick($event)" (serveBtnClickEM)="serveBtnClick($event)"></tbody>
   </nz-table>
 
   <nz-table *ngIf="havTableFilter" class="common-table" #nzTable [nzDataSource]="_dataSet" [nzPageSize]="50" [nzScroll]="{ y: 500 }"
@@ -51,8 +51,8 @@
     <thead nz-thead table-thead [titleArr]="titleArr" (updateDataEM)="tableFilterUpdateData($event)" [copyData]="copyData" [filterColArr]="filterColArr"
       [sortColArr]="sortColArr"></thead>
 
-    <tbody nz-tbody table-tbody [tableData]="_dataSet" [titleArr]="titleArr" [operationOrginButton]="operationOrginButton" [operationButton]="operationButton"
-      [tableBtnArr]="tableBtnArr" (orginBtnClickEM)="orginBtnClick($event)" (customBtnClickEM)="customBtnClick($event)" (serveBtnClickEM)="serveBtnClick($event)"></tbody>
+    <tbody nz-tbody table-tbody [tableData]="_dataSet" [titleArr]="titleArr" [operationOrginButton]="operationOrginButton" [operationButton]="operationButton" [tableBtnStrArr]="tableBtnStrArr"
+      [tableBtnArr]="_tableBtnArr" (orginBtnClickEM)="orginBtnClick($event)" (customBtnClickEM)="customBtnClick($event)" (serveBtnClickEM)="serveBtnClick($event)"></tbody>
   </nz-table>
 
 </div>

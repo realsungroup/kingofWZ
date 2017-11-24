@@ -17,12 +17,13 @@
         </button>
     </td>
 
-    <!-- ???????? -->
-    <ng-container *ngFor="let btn of _tableBtnArr;let btnI = index">
-        <td nz-td *ngIf="btn.Show && btn.Type == 1">
+    <!-- 服务器按钮组 -->
+    <ng-container *ngFor="let btn of tableBtnArr;let btnI = index">
+        <td nz-td *ngIf="btn.Show && btn.Type == 1 && tableBtnStrArr[btnI] && data[tableBtnStrArr[btnI]] == 'Y'">
             <button nz-button (click)="serveMenuClick($event,btnI,btn,dataIndex)">
                 <span>{{btn.Name1}}</span>
             </button>
         </td>
     </ng-container>
+
 </tr>

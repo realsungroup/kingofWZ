@@ -1,14 +1,43 @@
-<app-extend-table
-  [pageName]="'securityEnter'"
-  [isAutoData]="true"
-  [subResid]="subResid"
-  [requestType]="'GET'"
-  [requestUrl]="url"
-  [requestParams]="requestParams"
-  [requestDataType]="requestDataType"
-  [operationOrginButton]="[true,true,false,false]"
-  [addFormName]="addFormName"
-  [tabs]="tabs"
-  [isEditCustomPosition]="isEditCustomPosition"
-  [isAddCustomPosition]="isAddCustomPosition">
-</app-extend-table>
+
+<nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+  <nz-tab *ngFor="let tab of tabs">
+    <ng-template #nzTabHeading>
+      未登记物品
+    </ng-template>
+    <app-extend-table
+    [pageName]="'securityEnter'"
+    [isAutoData]="true"
+    [subResid]="subResid"
+    [requestType]="'GET'"
+    [requestUrl]="url"
+    [requestParams]="requestParams"
+    [requestDataType]="requestDataType"
+    [operationOrginButton]="[true,true,false,false]"
+    [addFormName]="addFormName"
+    [tabs]="tabs"
+    [isEditCustomPosition]="isEditCustomPosition"
+    [isAddCustomPosition]="isAddCustomPosition">
+  </app-extend-table>
+  </nz-tab>
+
+
+  <nz-tab *ngFor="let tab of tabs">
+    <ng-template #nzTabHeading>
+      已登记物品
+    </ng-template>
+    <app-extend-table
+    [pageName]="'securityEnter'"
+    [isAutoData]="true"
+    [subResid]="subResid"
+    [requestType]="'GET'"
+    [requestUrl]="url"
+    [requestParams]="requestParams"
+    [requestDataType]="requestDataType"
+    [operationOrginButton]="[true,false,false,false]"
+    [addFormName]="addFormName"
+    [tabs]="tabs"
+    [isEditCustomPosition]="isEditCustomPosition"
+    [isAddCustomPosition]="isAddCustomPosition">
+  </app-extend-table>
+  </nz-tab>
+</nz-tabset>

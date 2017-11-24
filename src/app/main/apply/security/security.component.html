@@ -1,0 +1,85 @@
+  
+
+<nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+    <nz-tab >
+      <ng-template #nzTabHeading>
+         未审批
+      </ng-template>
+
+      <div [class.hidden]="isDetailModalShow">
+        <app-lzcommon-table #unPendedTable
+        [isAutoData]="true"
+        [requestType]="'GET'"
+        [requestUrl]="url"
+        [tabs]="tabs"
+        [alertModal]="true"
+        [requestParams]="requestParams"
+        [requestDataType]="requestDataType"
+        [operationOrginButton]="[false,false,false,false]"
+        [serchEnable]="false"
+        [operationButton]="operationButton"
+        (operationBtnNoti)="operationBtnNoti($event)"
+        ></app-lzcommon-table>
+      </div>
+
+      <ng-container *ngIf="isDetailModalShow">
+          <app-window-modal 
+          (closeNoti)="closeModal($event)"
+          [tabs]="detailWindowsTabs"
+          [data]="selectData"
+          [resid]="requestParams.resid">
+                <app-lzcommon-table
+               [isAutoData]="true"
+               [requestType]="'GET'"
+               [requestUrl]="childurl"
+               [alertModal]="true"
+               [requestParams]="childrequestParams"
+               [isAttachDataModal]="true"
+               [requestDataType]="childrequestDataType"
+               [serchEnable]="false"
+               [tabs]="tabsA"
+               [operationOrginButton]="[true,false,false,false]"
+               >
+
+              </app-lzcommon-table> 
+          </app-window-modal>  
+      </ng-container>
+
+    </nz-tab>
+    <nz-tab >
+        <ng-template #nzTabHeading>
+           已审批
+        </ng-template>
+         <app-lzcommon-table #overParamsTable
+         [isAutoData]="true"
+         [requestType]="'GET'"
+         [requestUrl]="url"
+         [alertModal]="true"
+      
+         [tabs]="tabs"
+         [requestParams]="requestoverParams"
+         [requestDataType]="requestDataType"
+         [operationOrginButton]="[true,false,false,false]"
+         [serchEnable]="false"
+        
+        ></app-lzcommon-table>
+      </nz-tab>
+      <nz-tab>
+        <ng-template #nzTabHeading>
+          已拒绝
+       </ng-template>
+       <app-lzcommon-table #ErrorParamTable
+       [requestUrl]="url"
+       [isAutoData]="true"
+       [requestType]="'GET'"
+      [requestParams]="requestErrorParams"
+      [requestDataType]="requestDataType"
+      [alertModal]="true"
+      [operationOrginButton]="[true,false,false,false]"
+      [tabs]="tabsB"
+      [serchEnable]="false"
+       >
+       </app-lzcommon-table>
+           
+      </nz-tab>
+  </nz-tabset>

@@ -144,13 +144,13 @@
             </tr>
 
             <tr nz-tbody-tr>
-                <td nz-td [attr.colspan]="2">接待部门出门确认</td>
+                <td nz-td [attr.colspan]="2">接待部门审批人</td>
                 <td nz-td [attr.colspan]="2">
-                    <ng-container *ngIf="detail">
-                        {{data['C3_561658640749']}}
-                    </ng-container>
+                        <ng-container *ngIf="detail">
+                                {{data['C3_563977784333']}}
+                            </ng-container>
                     <ng-container *ngIf="!detail">
-                        <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561658640749" [data]="data" [title]="_data.C3_561658640749" (clickNotiEvent)="formItemDynamicClick($event)"
+                        <app-form-item-dynamic [nSpan]="40" *ngIf="_data.C3_563977784333" [data]="data" [title]="_data.C3_563977784333" (clickNotiEvent)="formItemDynamicClick($event)"
                             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
                     </ng-container>
                 </td>

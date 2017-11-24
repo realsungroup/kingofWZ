@@ -30,7 +30,7 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
   @Input() alertModal:boolean = false;
   @Input() serchEnable:boolean = true;  
   @Input() isExport: boolean = false;
-  @Input() isAutoData: boolean = false;//是否自动获取数据
+  @Input() isAutoData: boolean = true;//是否自动获取数据
   @Input() isAttachDataModal: boolean = false;//是否是附表数据
   @Input() operationButton: Array<any>;//自定义按钮对象{title:'',type:'',loading:true}
   @Output() operationBtnNoti = new EventEmitter();//自定义按钮回调方法

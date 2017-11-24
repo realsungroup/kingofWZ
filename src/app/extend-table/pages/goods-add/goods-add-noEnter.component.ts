@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BaseGoodsComponent } from '../base-goods/base-goods.component';
-import { NEED_ENTER_DATAMAP } from '../providers/data-map.service';
+import { NO_ENTER_DATAMAP } from '../providers/data-map.service';
 
 @Component({
   selector: 'goods-add-noEnter',
@@ -9,7 +9,7 @@ import { NEED_ENTER_DATAMAP } from '../providers/data-map.service';
 export class GoodsAddNoEnterComponent extends BaseGoodsComponent implements OnInit {
 
   ngOnInit() {
-    this._data = NEED_ENTER_DATAMAP;
+    this._data = NO_ENTER_DATAMAP;
     super.ngOnInit();
   }
 

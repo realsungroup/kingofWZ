@@ -1,0 +1,75 @@
+
+
+<nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+  <nz-tab >
+    <ng-template #nzTabHeading>
+       未审查
+    </ng-template>
+    <div [class.hidden]="isDetaillShow">
+    <app-lzcommon-table #unpolicecheckTable
+    [isAutoData]="true"
+    [requestType]="'GET'"
+    [requestUrl]="url"
+    [tabs]="tabs"
+    [alertModal]="true"
+    [requestParams]="requestParams"
+    [requestDataType]="requestDataType"
+    [operationOrginButton]="[false,false,false,false]"
+    [operationButton]="operationButton"
+    (operationBtnNoti)="operationBtnNoti($event)"
+    ></app-lzcommon-table></div>
+    <ng-container *ngIf="isDetaillShow">
+        <app-modal-form 
+        (eventNoti)="closeModal($event)"
+        [tabs]="tabs"
+        [data]="selectData"
+        [isMainData]="true"
+        [resid]="requestParams.resid">
+             <app-lzcommon-table
+             [isAutoData]="true"
+             [requestType]="'GET'"
+             [requestUrl]="childurl"
+             [alertModal]="true"
+             [requestParams]="childrequestParams"
+             [requestDataType]="childrequestDataType"
+             [serchEnable]="false"
+             [isAttachDataModal]="true"
+             [tabs]="tabsA"
+             [operationOrginButton]="[true,false,false,false]"
+             >
+
+            </app-lzcommon-table>
+          </app-modal-form>  
+    </ng-container>
+  </nz-tab>
+  <nz-tab >
+      <ng-template #nzTabHeading>
+         已审查
+      </ng-template>
+      <app-lzcommon-table #requestOverPtable
+      [tabs]="tabs"
+      [isAutoData]="true"
+      [alertModal]="true"
+      [requestType]="'GET'"
+      [requestUrl]="url"
+      [requestParams]="requestOverParams"
+      [requestDataType]="requestDataType"
+      [operationOrginButton]="[true,false,false,false]"
+      ></app-lzcommon-table>
+    </nz-tab>
+    <nz-tab >
+      <ng-template #nzTabHeading>
+         已拒绝
+      </ng-template>
+      <app-lzcommon-table #requestErrorPtable
+      [tabs]="tabsB"
+      [isAutoData]="true"
+      [alertModal]="true"
+      [requestType]="'GET'"
+      [requestUrl]="url"
+      [requestParams]="requestErrorParams"
+      [requestDataType]="requestDataType"
+      [operationOrginButton]="[true,false,false,false]"
+      ></app-lzcommon-table>
+    </nz-tab>
+</nz-tabset>

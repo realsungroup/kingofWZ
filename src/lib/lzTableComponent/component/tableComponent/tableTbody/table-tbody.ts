@@ -11,16 +11,22 @@ export class TableTbodyComponent {
     _orginBtnType = ['primary', 'default', 'default', 'danger'];
     _orginBtnTitle = ['详情', '操作', '附表', '删除'];
 
-    @Input() set tableBtnArr(value) {
-        this._tableBtnArr = value;
-    }
+    // @Input() set tableBtnArr(value) {
+    //     this._tableBtnArr = value;
+    // }
+    @Input() tableBtnArr = []
     @Input() tableData = [];
     @Input() operationButton = [];
     @Input() operationOrginButton = [];
     @Input() titleArr = [];
+    @Input() tableBtnStrArr = [];
     @Output() orginBtnClickEM = new EventEmitter();
     @Output() customBtnClickEM = new EventEmitter();
     @Output() serveBtnClickEM = new EventEmitter();
+
+    constructor(){
+        console.info("TableTbodyComponent",this.tableBtnArr)
+    }
 
     orginBtnClick($event, index, data, dataIndex) {
         this.orginBtnClickEM.emit({ $event, index, data, dataIndex });

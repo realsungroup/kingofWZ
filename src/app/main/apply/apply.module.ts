@@ -11,7 +11,9 @@ import { SecurityEnterComponent } from './security-enter/security-enter.componen
 import { SecurityOutComponent } from './security-out/security-out.component';
 import { FactoryMoveComponent } from './factory-move/factory-move.component';
 import { MoveInComponent } from './move-in/move-in.component';
-
+import { SecurityComponent } from './security/security.component';
+import { SecurityPCheckComponent } from './security-p-check/security-p-check.component';
+import {LzcommonTableModule} from '../../../lib/lzTableComponent/commonTable/lzcommon-table.module'
 @NgModule({
   imports: [
     CommonModule,
@@ -19,8 +21,9 @@ import { MoveInComponent } from './move-in/move-in.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    GoodsModule
+    GoodsModule,
+    LzcommonTableModule
   ],
-  declarations: [PassCardComponent, PassCardNoEnterComponent, SecurityEnterComponent, SecurityOutComponent, FactoryMoveComponent, MoveInComponent]
+  declarations: [PassCardComponent, PassCardNoEnterComponent, SecurityEnterComponent, SecurityOutComponent, FactoryMoveComponent, MoveInComponent, SecurityComponent, SecurityPCheckComponent]
 })
 export class ApplyModule { }

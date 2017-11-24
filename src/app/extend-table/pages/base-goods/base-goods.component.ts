@@ -35,7 +35,7 @@ export class BaseGoodsComponent implements OnInit {
 
   constructor(protected httpSev: BaseHttpService, private messageSev: NzMessageService, private modalSev: NzModalService) { }
 
-  ngOnInit() {
+  ngOnInit() { 
     let path = this.httpSev.path;
     this.url = path.baseUrl + path.getSubData;
     this.requestParams = {
@@ -44,10 +44,10 @@ export class BaseGoodsComponent implements OnInit {
       hostrecid:this.data['REC_ID'] || ''
     }
     this.requestDataType = this.httpSev.dataT.AttachTableDataEM;
-    // this.tabs = [{
+    //  this.tabs = [{
     //   isSubForm: false,
-    //   formName: "default",
-    // }]
+    //    formName: "default",
+    //  }]
 
     this.getKeysData(this.resid);
 

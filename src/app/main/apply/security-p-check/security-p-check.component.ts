@@ -23,10 +23,16 @@ export class SecurityPCheckComponent implements OnInit , AfterViewInit{
   childrequestParams={};
   childrequestDataType=-1;
   isDetaillShow = false;
+  isDetaillOverShow=false;
+  isDetaillErrorShow=false;
   alertModal:boolean=true;
+  selectDataC={};
+  selectDataB={};
   selectData = {};
   requestOverParams={};
   requestErrorParams={};
+  operationButtonB=[{title:'详情',type:'default'}]
+  operationButtonC=[{title:'详情',type:'default'}]
   operationButton=[{title:'审查',type:'default'},{title:'通过',type:'default'},{title:'拒绝',type:'default'}]
   @ViewChild("unpolicecheckTable")
   private unpolicecheckTableRef: LZcommonTableComponent;
@@ -39,6 +45,13 @@ export class SecurityPCheckComponent implements OnInit , AfterViewInit{
   }
   closeModal(e){
     this.isDetaillShow = false;
+  }
+  closeOver(e){
+
+    this.isDetaillOverShow=false;
+  }
+  closeError(e){
+    this.isDetaillErrorShow=false;
   }
   ngAfterViewInit(){
 
@@ -62,6 +75,40 @@ export class SecurityPCheckComponent implements OnInit , AfterViewInit{
     this.tabsA=passCard.tabsA;
     this.tabsB=passCard.tabsB;
   }
+  operationBtnNotiB(e){
+    if(e.i==0){
+    this.isDetaillOverShow=true;
+    this.selectDataB=e.data;
+    let passCard = this.appSev.app.pages['securityPoliceCheck'];
+    
+    this.childurl = this.httpSev.path.baseUrl + this.httpSev.path.getSubData;
+    this.childrequestParams = Object.assign({}, this.requestOverParams);
+    this.childrequestParams['subResid'] =564596425727 ;
+    this.childrequestParams['hostrecid'] = e.data['REC_ID'];
+    delete this.childrequestParams['getcolumninfo'];
+    this.childrequestDataType = this.httpSev.dataT.AttachTableDataEM;
+    
+    
+    }
+    
+     }
+  operationBtnNotiC(e){
+    if(e.i==0){
+    this.isDetaillErrorShow=true;
+    this.selectDataB=e.data;
+    let passCard = this.appSev.app.pages['securityPoliceCheck'];
+    
+    this.childurl = this.httpSev.path.baseUrl + this.httpSev.path.getSubData;
+    this.childrequestParams = Object.assign({}, this.requestErrorParams);
+    this.childrequestParams['subResid'] =564596425727 ;
+    this.childrequestParams['hostrecid'] = e.data['REC_ID'];
+    delete this.childrequestParams['getcolumninfo'];
+    this.childrequestDataType = this.httpSev.dataT.AttachTableDataEM;
+    
+    
+    }
+    
+     }
   operationBtnNoti(e){
     if(e.i == 0){
       this.isDetaillShow = true;

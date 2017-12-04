@@ -20,6 +20,7 @@ export class BaseGoodsComponent implements OnInit {
   @Input() addFormName:string = '';
   @Input() isEditCustomPosition = false;
   @Input() isAddCustomPosition = false;
+  @Input() editOperationOrginButton = [false,false,false,false];
 
   _data: any = {};
   _dataPropArr = [];

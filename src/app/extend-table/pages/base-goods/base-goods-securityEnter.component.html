@@ -8,7 +8,7 @@
             </div>
             <div nz-row nz-form-item>
                 <button nz-button (click)="submitClick()" *ngIf="!detail">
-                    <span>提交</span>
+                    <span>保存</span>
                 </button>
             </div>
         </form>
@@ -16,6 +16,17 @@
 
     <nz-table #nzTableHeader [nzDataSource]="[data]" [nzBordered]="true" [nzIsPagination]="false">
         <tbody nz-tbody>
+            <tr nz-tbody-tr>
+                    <td nz-td>物品是否带出</td>
+                    <td nz-td>
+                        <ng-container *ngIf="detail">
+                            {{data['C3_565180710355']}}
+                        </ng-container>
+                        <ng-container *ngIf="!detail">
+                            <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_565180710355" [data]="data" [title]="_data.C3_565180710355" (clickNotiEvent)="formItemDynamicClick($event)"
+                                (updateNotiEvent)="update($event)"></app-form-item-dynamic>
+                        </ng-container>
+            </tr>
             <tr nz-tbody-tr>
                 <td nz-td>带入日期</td>
                 <td nz-td>
@@ -37,7 +48,7 @@
                             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
                     </ng-container>
                 </td>
-                <td nz-td>工号</td>
+                <td nz-td>带入人工号</td>
                 <td nz-td>
                     <ng-container *ngIf="detail">
                         {{data['C3_561653973779']}}
@@ -47,7 +58,7 @@
                             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
                     </ng-container>
                 </td>
-                <td nz-td>公司/部门</td>
+                <td nz-td>带入人公司/部门</td>
                 <td nz-td>
                     <ng-container *ngIf="detail">
                         {{data['C3_561654129444']}}
@@ -59,16 +70,7 @@
                 </td>
             </tr>
             <tr nz-tbody-tr>
-                <td nz-td>入安检时间</td>
-                <td nz-td>
-                    <ng-container *ngIf="detail">
-                        {{data['C3_561654021212']}}
-                    </ng-container>
-                    <ng-container *ngIf="!detail">
-                        <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561654021212" [data]="data" [title]="_data.C3_561654021212" (clickNotiEvent)="formItemDynamicClick($event)"
-                            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
-                    </ng-container>
-                </td>
+         
                 <td nz-td>搬入处</td>
                 <td nz-td>
                     <ng-container *ngIf="detail">
@@ -89,49 +91,19 @@
                             (updateNotiEvent)="update($event)"></app-form-item-dynamic>
                     </ng-container>
                 </td>
-                <td nz-td>带入安检门保安确认</td>
-                <td nz-td>
-                    <ng-container *ngIf="detail">
-                        {{data['C3_561654194849']}}
-                    </ng-container>
-                    <ng-container *ngIf="!detail">
-                        <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561654194849" [data]="data" [title]="_data.C3_561654194849" (clickNotiEvent)="formItemDynamicClick($event)"
-                            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
-                    </ng-container>
-                </td>
+                
             </tr>
-            <tr nz-tbody-tr>
-                <td nz-td>带出安检安检门时间</td>
-                <td nz-td>
-                    <ng-container *ngIf="detail">
-                        {{data['C3_561654240714']}}
-                    </ng-container>
-                    <ng-container *ngIf="!detail">
-                        <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561654240714" [data]="data" [title]="_data.C3_561654240714" (clickNotiEvent)="formItemDynamicClick($event)"
-                            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
-                    </ng-container>
-                </td>
-                <td nz-td [attr.colspan]="3">带出安检门保安确认</td>
-                <td nz-td [attr.colspan]="3">
-                    <ng-container *ngIf="detail">
-                        {{data['C3_561654265721']}}
-                    </ng-container>
-                    <ng-container *ngIf="!detail">
-                        <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_561654265721" [data]="data" [title]="_data.C3_561654265721" (clickNotiEvent)="formItemDynamicClick($event)"
-                            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
-                    </ng-container>
-                </td>
-            </tr>
+          
         </tbody>
     </nz-table>
 
     <div class="child-table">
         <ng-container *ngIf="detail">
-            <app-lzcommon-table [isAttachDataModal]="true" [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType">
+            <app-lzcommon-table [isAttachDataModal]="true" [alertModal]="true" [isAutoData]="true" [requestType]="'GET'" [requestUrl]="url" [requestParams]="requestParams" [requestDataType]="requestDataType" [operationOrginButton]="[true,false,false,false]" [tabs]="tabs">
             </app-lzcommon-table>
         </ng-container>
         <ng-container *ngIf="!detail">
-            <common-local-data [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [alertModal]="true" [resid]="subResid" [ldData]="_ldData" (updateEM)="updateData($event)" [addFormName]="addFormName" [operationOrginButton]="[true,true,false,true]" [tabs]="tabs"></common-local-data>
+            <common-local-data [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [alertModal]="true" [resid]="subResid" [ldData]="_ldData" (updateEM)="updateData($event)" [addFormName]="addFormName" [operationOrginButton]="editOperationOrginButton" [tabs]="tabs"></common-local-data>
         </ng-container>
     </div>
 </div>

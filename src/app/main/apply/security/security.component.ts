@@ -27,8 +27,15 @@ export class SecurityComponent implements OnInit, AfterViewInit {
   operationButton = [{title:'查看',type:'default'},{ title: '同意', type: 'default' }, { title: '拒绝', type: 'default' }];
   childrequestDataType=-1;
   isDetailModalShow = false;
+  operationButtonB = [{title:'详情',type:'default'}]
+  isDetailOverShow=false;
+  isDetailErrorShow=false;
   detailWindowsTabs = [];
+  operationButtonC=[{title:'详情',type:'default'}]
+  
   selectData = {}
+  selectDataA={}
+  selectDataB={}
   requestoverParams={};
   @ViewChild("unPendedTable")
   private unPendedTableRef: LZcommonTableComponent;
@@ -66,6 +73,48 @@ export class SecurityComponent implements OnInit, AfterViewInit {
   closeModal(e){
     this.isDetailModalShow = false;
   }
+  closeOver(e){
+this.isDetailOverShow=false;
+
+ }
+ closeError(e){
+this.isDetailErrorShow=false;
+
+ }
+ operationBtnNotiB(e){
+if(e.i==0){
+this.isDetailOverShow=true;
+this.selectDataA=e.data;
+let passCard = this.appSev.app.pages['securityCheck'];
+this.detailWindowsTabs = passCard.tabs;
+this.childurl = this.httpSev.path.baseUrl + this.httpSev.path.getSubData;
+this.childrequestParams = Object.assign({}, this.requestoverParams);
+this.childrequestParams['subResid'] =564580620519 ;
+this.childrequestParams['hostrecid'] = e.data['REC_ID'];
+delete this.childrequestParams['getcolumninfo'];
+this.childrequestDataType = this.httpSev.dataT.AttachTableDataEM;
+
+
+}
+
+ }
+ operationBtnNotiC(e){
+  if(e.i==0){
+  this.isDetailErrorShow=true;
+  this.selectDataB=e.data;
+  let passCard = this.appSev.app.pages['securityCheck'];
+  this.detailWindowsTabs = passCard.tabs;
+  this.childurl = this.httpSev.path.baseUrl + this.httpSev.path.getSubData;
+  this.childrequestParams = Object.assign({}, this.requestErrorParams);
+  this.childrequestParams['subResid'] =564580620519 ;
+  this.childrequestParams['hostrecid'] = e.data['REC_ID'];
+  delete this.childrequestParams['getcolumninfo'];
+  this.childrequestDataType = this.httpSev.dataT.AttachTableDataEM;
+  
+  
+  }
+  
+   }
 
   operationBtnNoti(e) {
     if(e.i == 0){

@@ -6,6 +6,7 @@
     </ng-template>
     <app-extend-table #unApproveTable 
     [pageName]="'securityOut'" 
+    [addForm]="true"
     [isAutoData]="true" 
     [subResid]="subResid" 
     [requestType]="'GET'"
@@ -13,6 +14,7 @@
       [requestParams]="requestParams" 
       [requestDataType]="requestDataType" 
       [operationOrginButton]="[true,true,false,false]"
+      [editOperationOrginButton]="[false,true,false,true]"
       [addFormName]="addFormName" 
       [tabs]="tabs" 
       [isEditCustomPosition]="isEditCustomPosition"
@@ -26,116 +28,130 @@
     <ng-template #nzTabHeading>
       已提交
     </ng-template>
-    <app-lzcommon-table #RejectTable
+    <app-extend-table #RejectTable
     [tabs]="tabsA"
+    [pageName]="'securityOut'"
     [isAutoData]="true"
-    [alertModal]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
     [requestUrl]="url"
     [requestParams]="requestSubmitParams"
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
+    [editOperationOrginButton]="[true,false,false,false]"
     [operationButton]="operationButtonB" 
     (operationBtnNoti)="operationBtnNotiB($event)"
-     ></app-lzcommon-table>
+     ></app-extend-table>
 
   </nz-tab>
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
       已撤销
     </ng-template>
-    <app-lzcommon-table #CancelTable
+    <app-extend-table #CancelTable
     [tabs]="tabsB"
+    [pageName]="'securityOut'"
     [isAutoData]="true"
-    [alertModal]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
     [requestUrl]="url"
     [requestParams]="requestCancelParams"
     [requestDataType]="requestDataType"
-    [operationOrginButton]="[true,false,false,false]"
+    [operationOrginButton]="[true,true,false,false]"
+    [editOperationOrginButton]="[true,true,false,false]"
     >
-  </app-lzcommon-table>
+  </app-extend-table>
   </nz-tab>
 
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
       已审批
     </ng-template>
-    <app-lzcommon-table
+    <app-extend-table
+    [pageName]="'securityOut'"
     [tabs]="tabsC"
     [isAutoData]="true"
-    [alertModal]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
     [requestUrl]="url"
     [requestParams]="requestCheckParams"
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
+    [editOperationOrginButton]="[true,false,false,false]"
    >
-     </app-lzcommon-table>
+     </app-extend-table>
   </nz-tab>
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
       已拒绝
     </ng-template>
-    <app-lzcommon-table
+    <app-extend-table
+    [pageName]="'securityOut'"
     [tabs]="tabsD"
     [isAutoData]="true"
-    [alertModal]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
     [requestUrl]="url"
     [requestParams]="requestRejectParams"
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
+    [editOperationOrginButton]="[true,false,false,false]"
      >
-       </app-lzcommon-table>
+       </app-extend-table>
   </nz-tab>
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
       待放行
     </ng-template>
-    <app-lzcommon-table
+    <app-extend-table
+    [pageName]="'securityOut'"
     [tabs]="tabsE"
     [isAutoData]="true"
-    [alertModal]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
     [requestUrl]="url"
     [requestParams]="requestUnpassParams"
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
-    >      </app-lzcommon-table>
+    [editOperationOrginButton]="[true,false,false,false]"
+    >      </app-extend-table>
   </nz-tab>
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
       已放行
     </ng-template>
-    <app-lzcommon-table
+    <app-extend-table
+    [pageName]="'securityOut'"
     [tabs]="tabsF"
     [isAutoData]="true"
-    [alertModal]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
     [requestUrl]="url"
     [requestParams]="requestPassParams"
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
+    [editOperationOrginButton]="[true,false,false,false]"
     
     >
-     </app-lzcommon-table>
+     </app-extend-table>
   </nz-tab>
 
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
       拒绝放行
     </ng-template>
-    <app-lzcommon-table
+    <app-extend-table
+    [pageName]="'securityOut'"
     [tabs]="tabsG"
     [isAutoData]="true"
-    [alertModal]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
     [requestUrl]="url"
     [requestParams]="requestErrorPassParams"
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
+    [editOperationOrginButton]="[true,false,false,false]"
      >
-     </app-lzcommon-table>
+     </app-extend-table>
   </nz-tab>
 </nz-tabset>

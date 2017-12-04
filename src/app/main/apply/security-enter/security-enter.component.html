@@ -2,9 +2,9 @@
 <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
-      未登记物品
+      安检门物资进入登记
     </ng-template>
-    <app-extend-table
+    <app-extend-table #enterTable
     [pageName]="'securityEnter'"
     [isAutoData]="true"
     [subResid]="subResid"
@@ -13,31 +13,70 @@
     [requestParams]="requestParams"
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,true,false,false]"
-    [addFormName]="addFormName"
+    [addForm]="true"
+    [addFormName]="addFormName" 
     [tabs]="tabs"
     [isEditCustomPosition]="isEditCustomPosition"
-    [isAddCustomPosition]="isAddCustomPosition">
+    [editOperationOrginButton]="[false,true,false,true]"
+    [isAddCustomPosition]="isAddCustomPosition"
+    [operationButton]="operationButton" 
+    (operationBtnNoti)="operationBtnNoti($event)">
+    
   </app-extend-table>
   </nz-tab>
 
 
   <nz-tab *ngFor="let tab of tabs">
     <ng-template #nzTabHeading>
-      已登记物品
+      未出门确认
     </ng-template>
-    <app-extend-table
+    <app-extend-table #ungouttable
     [pageName]="'securityEnter'"
-    [isAutoData]="true"
+    [tabs]="tabsA"
     [subResid]="subResid"
+    [isAutoData]="true"
     [requestType]="'GET'"
     [requestUrl]="url"
-    [requestParams]="requestParams"
+    [requestParams]="requestungooutParams"
     [requestDataType]="requestDataType"
-    [operationOrginButton]="[true,false,false,false]"
-    [addFormName]="addFormName"
-    [tabs]="tabs"
-    [isEditCustomPosition]="isEditCustomPosition"
-    [isAddCustomPosition]="isAddCustomPosition">
-  </app-extend-table>
+    [operationOrginButton]="[false,true,false,false]"
+    [editOperationOrginButton]="[true,true,false,false]"
+    [operationButton]="operationButtonB" 
+    (operationBtnNoti)="operationBtnNotiB($event)"
+     ></app-extend-table>
   </nz-tab>
+  <nz-tab *ngFor="let tab of tabs">
+      <ng-template #nzTabHeading>
+        确认完成
+      </ng-template>
+      <app-extend-table #overgoouttable
+      [pageName]="'securityEnter'"
+      [tabs]="tabsB"
+      [isAutoData]="true"
+      [subResid]="subResid"
+      [requestType]="'GET'"
+      [requestUrl]="url"
+      [requestParams]="requestovergooutParams"
+      [requestDataType]="requestDataType"
+      [operationOrginButton]="[true,false,false,false]"
+      [editOperationOrginButton]="[true,false,false,false]"
+       ></app-extend-table>
+    </nz-tab>
+    <nz-tab *ngFor="let tab of tabs">
+        <ng-template #nzTabHeading>
+          已撤销
+        </ng-template>
+        <app-extend-table #Cancelgoouttable
+        [pageName]="'securityEnter'"
+        [tabs]="tabsC"
+        [isAutoData]="true"
+        [subResid]="subResid"
+        [requestType]="'GET'"
+        [requestUrl]="url"
+        [requestParams]="requestCancelgooutParams"
+        [requestDataType]="requestDataType"
+        [operationOrginButton]="[true,false,false,false]"
+        [editOperationOrginButton]="[true,false,false,false]"
+         ></app-extend-table>
+      </nz-tab>
 </nz-tabset>

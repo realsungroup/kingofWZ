@@ -49,13 +49,11 @@ export class FormItemDynamicComponent implements OnInit, OnChanges {
     this.frmFieldFormType = this.title.FrmFieldFormType;
 
     //数据结构类型对应到itemtype枚举中
-    // if (this.frmFieldFormType == FormItemElementEM.ImageForUrlCol) {
-    //   this.selectTypeEM = FormItemTypeEM.ImageForUrlCol;
-    // } else if(this.frmFieldFormType == FormItemElementEM.ImageForInputform){
-    //   this.selectTypeEM = FormItemTypeEM.ImgCamera;
-    // } else
-
-    if (this.structType == FormItemStructEM.Date) {
+    if (this.frmFieldFormType == FormItemElementEM.ImageForUrlCol) {
+      this.selectTypeEM = FormItemTypeEM.ImageForUrlCol;
+    } else if(this.frmFieldFormType == FormItemElementEM.ImageForInputform){
+      this.selectTypeEM = FormItemTypeEM.ImgCamera;
+    } else if (this.structType == FormItemStructEM.Date) {
       this.selectTypeEM = FormItemTypeEM.Date;
     } else if (this.structType == FormItemStructEM.Time) {
       this.selectTypeEM = FormItemTypeEM.Time;

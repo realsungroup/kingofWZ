@@ -35,7 +35,7 @@
              [serchEnable]="false"
              [isAttachDataModal]="true"
              [tabs]="tabsA"
-             [operationOrginButton]="[true,false,false,false]"
+             [operationOrginButton]="[false,true,false,false]"
              >
 
             </app-lzcommon-table>
@@ -46,6 +46,7 @@
       <ng-template #nzTabHeading>
          已审查
       </ng-template>
+      <div [class.hidden]="isDetaillOverShow">
       <app-lzcommon-table #requestOverPtable
       [tabs]="tabs"
       [isAutoData]="true"
@@ -54,13 +55,39 @@
       [requestUrl]="url"
       [requestParams]="requestOverParams"
       [requestDataType]="requestDataType"
-      [operationOrginButton]="[true,false,false,false]"
-      ></app-lzcommon-table>
+      [operationOrginButton]="[false,false,false,false]"
+      [operationButton]="operationButtonB"
+      (operationBtnNoti)="operationBtnNotiB($event)"
+      ></app-lzcommon-table></div>
+      <ng-container *ngIf="isDetaillOverShow">
+        <app-modal-form 
+        (eventNoti)="closeOver($event)"
+        [tabs]="tabs"
+        [data]="selectDataB"
+        [isMainData]="true"
+        [resid]="requestOverParams.resid">
+             <app-lzcommon-table
+             [isAutoData]="true"
+             [requestType]="'GET'"
+             [requestUrl]="childurl"
+             [alertModal]="true"
+             [requestParams]="childrequestParams"
+             [requestDataType]="childrequestDataType"
+             [serchEnable]="false"
+             [isAttachDataModal]="true"
+             [tabs]="tabsA"
+             [operationOrginButton]="[true,false,false,false]"
+             >
+
+            </app-lzcommon-table>
+          </app-modal-form>  
+    </ng-container>
     </nz-tab>
     <nz-tab >
       <ng-template #nzTabHeading>
          已拒绝
       </ng-template>
+      <div [class.hidden]="isDetaillErrorShow">
       <app-lzcommon-table #requestErrorPtable
       [tabs]="tabsB"
       [isAutoData]="true"
@@ -69,7 +96,32 @@
       [requestUrl]="url"
       [requestParams]="requestErrorParams"
       [requestDataType]="requestDataType"
-      [operationOrginButton]="[true,false,false,false]"
-      ></app-lzcommon-table>
+      [operationOrginButton]="[false,false,false,false]"
+      [operationButton]="operationButtonC"
+      (operationBtnNoti)="operationBtnNotiC($event)"
+      ></app-lzcommon-table></div>
+      <ng-container *ngIf="isDetaillErrorShow">
+        <app-modal-form 
+        (eventNoti)="closeError($event)"
+        [tabs]="tabs"
+        [data]="selectDataC"
+        [isMainData]="true"
+        [resid]="requestErrorParams.resid">
+             <app-lzcommon-table
+             [isAutoData]="true"
+             [requestType]="'GET'"
+             [requestUrl]="childurl"
+             [alertModal]="true"
+             [requestParams]="childrequestParams"
+             [requestDataType]="childrequestDataType"
+             [serchEnable]="false"
+             [isAttachDataModal]="true"
+             [tabs]="tabsA"
+             [operationOrginButton]="[true,false,false,false]"
+             >
+
+            </app-lzcommon-table>
+          </app-modal-form>  
+    </ng-container>
     </nz-tab>
 </nz-tabset>

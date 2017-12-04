@@ -50,6 +50,7 @@
         <ng-template #nzTabHeading>
            已审批
         </ng-template>
+        <div [class.hidden]="isDetailOverShow">
          <app-lzcommon-table #overParamsTable
          [isAutoData]="true"
          [requestType]="'GET'"
@@ -59,15 +60,41 @@
          [tabs]="tabs"
          [requestParams]="requestoverParams"
          [requestDataType]="requestDataType"
-         [operationOrginButton]="[true,false,false,false]"
-         [serchEnable]="false"
+         [operationOrginButton]="[false,false,false,false]"
+         [serchEnable]="false" 
+         [operationButton]="operationButtonB"
+         (operationBtnNoti)="operationBtnNotiB($event)"
         
         ></app-lzcommon-table>
+      </div>
+      <ng-container *ngIf="isDetailOverShow">
+        <app-window-modal 
+        (closeNoti)="closeOver($event)"
+        [tabs]="detailWindowsTabs"
+        [data]="selectDataA"
+        [resid]="requestoverParams.resid">
+              <app-lzcommon-table
+             [isAutoData]="true"
+             [requestType]="'GET'"
+             [requestUrl]="childurl"
+             [alertModal]="true"
+             [requestParams]="childrequestParams"
+             [isAttachDataModal]="true"
+             [requestDataType]="childrequestDataType"
+             [serchEnable]="false"
+             [tabs]="tabsA"
+             [operationOrginButton]="[true,false,false,false]"
+             >
+
+            </app-lzcommon-table> 
+        </app-window-modal>  
+    </ng-container>
       </nz-tab>
       <nz-tab>
         <ng-template #nzTabHeading>
           已拒绝
        </ng-template>
+       <div [class.hidden]=isDetailErrorShow>
        <app-lzcommon-table #ErrorParamTable
        [requestUrl]="url"
        [isAutoData]="true"
@@ -75,11 +102,35 @@
       [requestParams]="requestErrorParams"
       [requestDataType]="requestDataType"
       [alertModal]="true"
-      [operationOrginButton]="[true,false,false,false]"
+      [operationOrginButton]="[false,false,false,false]"
+      [operationButton]="operationButtonC"
+      (operationBtnNoti)="operationBtnNotiC($event)"
       [tabs]="tabsB"
       [serchEnable]="false"
        >
-       </app-lzcommon-table>
+       </app-lzcommon-table></div>
+       <ng-container *ngIf="isDetailErrorShow">
+        <app-window-modal 
+        (closeNoti)="closeError($event)"
+        [tabs]="detailWindowsTabs"
+        [data]="selectDataB"
+        [resid]="requestErrorParams.resid">
+              <app-lzcommon-table
+             [isAutoData]="true"
+             [requestType]="'GET'"
+             [requestUrl]="childurl"
+             [alertModal]="true"
+             [requestParams]="childrequestParams"
+             [isAttachDataModal]="true"
+             [requestDataType]="childrequestDataType"
+             [serchEnable]="false"
+             [tabs]="tabsA"
+             [operationOrginButton]="[true,false,false,false]"
+             >
+
+            </app-lzcommon-table> 
+        </app-window-modal>  
+    </ng-container>
            
       </nz-tab>
   </nz-tabset>

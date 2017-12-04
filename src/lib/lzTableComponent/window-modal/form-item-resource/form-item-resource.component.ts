@@ -19,7 +19,7 @@ export class FormItemResourceComponent implements OnInit {
   pageSize = 10;
   _matchAndReferenceCols: Array<any> = [];
   _dictionaryFilterCol: Array<any> = [];
-
+  searchValue = '';
   
   @Input() advDictionaryListData: any;
   @Input() data: any = {};
@@ -40,6 +40,11 @@ export class FormItemResourceComponent implements OnInit {
     }
   }
 
+  //输入框监听事件
+  searchChange(val) {
+    this._refreshData();
+  }
+
   //获取数据
   _refreshData() {
     let url = this.path.baseUrl + this.path.getData;
@@ -58,7 +63,8 @@ export class FormItemResourceComponent implements OnInit {
       resid: resid2,
       pageIndex:this.current,
       pageSize:10,
-      cmswhere: cmswhere
+      cmswhere: cmswhere,
+      key: this.searchValue
     }
     this._loading = true;
     this.httpSev.baseRequest("GET", url, params, this.httpSev.dataT.HostTableDataEM).subscribe(

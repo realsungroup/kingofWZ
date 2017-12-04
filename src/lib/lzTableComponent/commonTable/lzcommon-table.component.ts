@@ -72,7 +72,10 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
 
   constructor(protected _httpSev: BaseHttpService, protected modalSev: NzModalService, protected messageSev: NzMessageService) {
 
+
   }
+
+  voidFunc(){return false}
 
   //监听输入数据的变化（自动获取数据状态下取出current，pageSize，resid数据）
   ngOnChanges(changes: SimpleChanges) {

@@ -115,6 +115,7 @@ export class SecurityOutComponent implements OnInit , AfterViewInit{
      if(data && (data.error == 0 || data.Error == 0)){
         this.messageSev.success(data.message||'撤销成功')
         this.unApproveTable._refreshData();
+        this.CancelTable._refreshData();
      }else{
        this.messageSev.error(data.message || '操作失败');
      }

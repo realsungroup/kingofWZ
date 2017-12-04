@@ -9,6 +9,8 @@ import { GoodsAddComponent } from './pages/goods-add/goods-add.component';
 export class ExtendTableComponent extends LZcommonTableComponent implements OnInit {
   @Input() pageName = '';
   @Input() subResid = '';
+  @Input() editOperationOrginButton;
+  @Input() addForm = false;
   ngOnInit(){
     super.ngOnInit();
   }

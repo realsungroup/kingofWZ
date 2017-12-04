@@ -12,7 +12,6 @@ import { WindowModalFormReadonlyComponent } from '../window-modal/modal-form-rea
 import { ModalFormComponent } from '../window-modal/modal-form/modal-form.component';
 import { FormItemDynamicComponent } from '../component/form-item-dynamic/form-item-dynamic.component';
 import { FormItemResourceComponent } from '../window-modal/form-item-resource/form-item-resource.component';
-// import { ExtendTableComponent } from '../../../app/extend-table/extend-table.component';
 import { FormItemDynamicPComponent } from '../component/form-item-dynamic-p/form-item-dynamic-p.component';
 import { AddFormDataComponent } from '../window-modal/add-form-data/add-form-data.component';
 import { FormTitleDynamicComponent } from '../component/form-title-dynamic/form-title-dynamic.component';
@@ -29,6 +28,7 @@ import { MergePipe } from '../pipe/merge.pipe';
 import { RepeatLoadOverDirective } from '../directive/repeat-load-over.directive';
 
 import { LZUntilService } from '../until/until.service';
+import { FormService } from '../service/form.service';
 
 const DIRECTIVES = [
   TableFilterComponent,
@@ -62,7 +62,7 @@ const DIRECTIVES = [
     AddFormDataComponent,
     FormTitleDynamicComponent,
     RepeatLoadOverDirective, ...DIRECTIVES],
-  providers: [LZUntilService],
+  providers: [LZUntilService,FormService],
   exports: [LZcommonTableComponent,
     WindowModalFormReadonlyComponent,
     ModalFormComponent,

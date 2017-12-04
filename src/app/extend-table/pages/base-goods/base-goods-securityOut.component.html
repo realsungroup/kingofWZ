@@ -110,10 +110,9 @@
             </app-lzcommon-table>
         </ng-container>
         <ng-container *ngIf="!detail">
-            <common-local-data  [operationOrginButton]="[true,false,false,false]" [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [alertModal]="true"
-                [resid]="subResid" [ldData]="_ldData" (updateEM)="updateData($event)" [addFormName]="addFormName" [operationOrginButton]="[true,true,false,true]"
+            <common-local-data   [isEditCustomPosition]="isEditCustomPosition" [isAddCustomPosition]="isAddCustomPosition" [alertModal]="true"
+                [resid]="subResid" [ldData]="_ldData" (updateEM)="updateData($event)" [addFormName]="addFormName"   [operationOrginButton]="editOperationOrginButton"
                 [tabs]="tabs"></common-local-data>
-
         </ng-container>
        
     </div>

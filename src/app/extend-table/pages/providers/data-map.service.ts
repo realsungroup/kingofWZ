@@ -78,6 +78,8 @@ export const SECURITY_ENTER_DATAMAP = {
   C3_561654194849: null,
   C3_561654240714: null,
   C3_561654265721: null,
+  C3_565180710355: null,
+  
 }
 
 export const SECURITY_OUT_DATAMAP = {

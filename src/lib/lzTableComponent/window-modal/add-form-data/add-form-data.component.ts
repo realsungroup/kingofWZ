@@ -6,6 +6,7 @@ import { ModalFormComponent } from '../modal-form/modal-form.component';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { FormItemElementEM } from '../../enum/form-item.enum';
 import { FormItemResourceComponent } from '../form-item-resource/form-item-resource.component';
+import { FormService } from '../../service/form.service';
 
 @Component({
   selector: 'app-add-form-data',
@@ -38,8 +39,8 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
         let specilTitleArr = [FormItemElementEM.ImageForUrlCol, FormItemElementEM.ImageForInputform];
         specilTitleArr.forEach(type => {
           let elementArr = data.data.columns.filter(item => item.FrmFieldFormType == type);
-          elementArr = this.elementAddColName(elementArr);
-          this.titleArray = this.fixTitleForType(this.titleArray, elementArr, type);
+          elementArr = this.formService.elementAddColName(elementArr);
+          this.titleArray = this.formService.fixTitleForType(this.titleArray, elementArr, type);
         })
       },
       err => {

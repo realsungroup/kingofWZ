@@ -8,6 +8,8 @@ import { FormItemElementEM, FormItemTypeEM } from '../../enum/form-item.enum';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { FormItemResourceComponent } from '../form-item-resource/form-item-resource.component';
+import { FormService } from '../../service/form.service';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-modal-form',
@@ -43,7 +45,7 @@ export class ModalFormComponent implements OnInit, OnDestroy {
   @Input() resid: string = '';//主表ID
   @Output() eventNoti = new EventEmitter();//与lzcommontable组件通信
 
-  constructor(protected httpSev: BaseHttpService, protected ut: LZUntilService, protected messageSev: NzMessageService, protected modalSev: NzModalService) {
+  constructor(protected httpSev: BaseHttpService, protected ut: LZUntilService, protected messageSev: NzMessageService, protected modalSev: NzModalService,protected formService:FormService) {
     this.path = this.httpSev.path;
   }
 
@@ -94,13 +96,8 @@ export class ModalFormComponent implements OnInit, OnDestroy {
           // tab.imgElementArr = this.imgElementAddColName(tab.imgElementArr);
           // tab.titleArray = this.fixTitleForImgType(tab.titleArray, tab.imgElementArr);
 
-          let specilTitleArr = [FormItemElementEM.ImageForUrlCol, FormItemElementEM.ImageForInputform];
-          specilTitleArr.forEach(type => {
-            let elementArr = data.data.columns.filter(item => item.FrmFieldFormType == type);
-            elementArr = this.elementAddColName(elementArr);
-            tab.titleArray = this.fixTitleForType(tab.titleArray, elementArr, type);
-          })
-
+          
+          tab = this.formService.fixTabsTitleArr(data,tab);
         }
       },
       err => {
@@ -129,24 +126,9 @@ export class ModalFormComponent implements OnInit, OnDestroy {
   }
 
   /**********数据处理 */
-  imgElementAddColName(data: Array<any>): Array<any> {
-    data.forEach(item => {
-      let frmColName = item.FrmColName;
-      let index = frmColName.lastIndexOf("__") + 2;
-      item['lzImgUrl'] = '';
-      if (index >= 0) item.lzImgUrl = frmColName.substring(index, frmColName.length);
-    })
-    return data;
-  }
+  
 
-  elementAddColName(data: Array<any>): Array<any> {
-    data.forEach(item => {
-      let frmColName = item.FrmColName;
-      let index = frmColName.lastIndexOf("__") + 2;
-      if (index >= 0) item.ColName = frmColName.substring(index, frmColName.length);
-    })
-    return data;
-  }
+  
 
   //处理图片选择控件的type
   fixTitleForImgType(titleArr: Array<any>, imgElementArr: Array<any>): Array<any> {
@@ -158,23 +140,7 @@ export class ModalFormComponent implements OnInit, OnDestroy {
     return titleArr;
   }
 
-  fixTitleForType(titleArr: Array<any>, imgElementArr: Array<any>, type): Array<any> {
-    imgElementArr.forEach(imgEle => {
-      titleArr.forEach(titleItem => {
-        if (titleItem['ColName'] == imgEle['ColName']) {
-          switch (type) {
-            case FormItemElementEM.ImageForUrlCol:
-              titleItem['ColValType'] = FormItemTypeEM.ImageSelect;
-              break;
-            case FormItemElementEM.ImageForInputform:
-              titleItem['ColValType'] = FormItemTypeEM.ImgCamera;
-              break;
-          }
-        }
-      })
-    })
-    return titleArr;
-  }
+  
 
   /**********事件类*** */
 

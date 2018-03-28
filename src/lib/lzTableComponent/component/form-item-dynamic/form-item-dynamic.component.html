@@ -75,10 +75,10 @@
     <nz-input-group [nzSize]="'large'" [nzCompact]="true">
       <input [attr.readonly]="title.FrmReadonly" [(ngModel)]="obj" (ngModelChange)="modelChange($event,formItemEM.ImageSelect)"
         style="width: 50%;" nz-input>
-      <button nz-button>
+      <!-- <button nz-button> -->
         <input class="img-input" type="file" accept="image/*" (change)="imgSelectClick($event)">
         <i class="anticon anticon-file"></i>
-      </button>
+      <!-- </button> -->
     </nz-input-group>
   </div>
 

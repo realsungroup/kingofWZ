@@ -24,8 +24,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
   validateForm: FormGroup;
   _loginBtnLoading = false;
   loginM: LoginInterface = {
-    account: "demo1",
-    passWord: "66287175",
+    account: "0001",
+    passWord: "",
   };
 
   constructor(protected injector: Injector,
@@ -83,7 +83,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      remember: [true],
+      remember: [false],
     });
     if(window.app['setTimeOutEnable']) this.loginSve.setAPITimeOut();
   }

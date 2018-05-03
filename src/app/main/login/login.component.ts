@@ -40,7 +40,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         // alert(JSON.stringify(data));
         let path = data.path;
         let ucode = data.ucode;
-        let account = data.account;
+        let account = data.user;
         let loginMethod = data.loginMethod;
         if(data['hideMenu'] == '1') window.app['hideMenu'] = '1';
 

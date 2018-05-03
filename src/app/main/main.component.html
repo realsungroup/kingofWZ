@@ -51,7 +51,7 @@
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header style="background: #fff; padding:0;">
+    <nz-header style="background: #fff; padding:0;" *ngIf="!isCollapsed">
       <div nz-row [nzType]="'flex'" [nzJustify]="'start'" [nzAlign]="'middle'">
           <div nz-col title="菜单开合" class="menu-trigger-content">
             <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>

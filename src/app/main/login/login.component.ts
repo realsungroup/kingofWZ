@@ -43,6 +43,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         let account = data.user;
         let loginMethod = data.loginMethod;
         if(data['hideMenu'] == '1') window.app['hideMenu'] = '1';
+        if(data['hideControl'] == '1') window.app['hideControl'] = '1';
 
         if (path && ucode && account && loginMethod) {
           this.isLoginWithToken = true;

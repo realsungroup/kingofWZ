@@ -53,6 +53,48 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
   }
 
   submitClick() {
+    if(this.titleArray["0"].FrmIsNoNull == '1'){
+      if(this.data.C3_561660086724 == undefined|| this.data.C3_561660086724 ==""){
+
+      alert("请填写物品名称！");
+      return false;
+      }
+    }
+    if(this.titleArray["1"].FrmIsNoNull == '1'){
+      if(this.data.C3_561660095455 == undefined|| this.data.C3_561660095455 ==""){
+
+      alert("请填写单位！");
+      return false;
+      }
+    }
+    if(this.titleArray["2"].FrmIsNoNull == '1'){
+      if(this.data.C3_561660118451 == undefined|| this.data.C3_561660118451 ==""){
+
+      alert("请填写数量！");
+      return false;
+      }
+    }
+    if(this.titleArray["3"].FrmIsNoNull == '1'){
+      if(this.data.C3_561812970226 == undefined|| this.data.C3_561812970226 ==""){
+
+      alert("请上传附件1！");
+      return false;
+      }
+    }
+    if(this.titleArray["4"].FrmIsNoNull == '1'){
+      if(this.data.C3_561812973382 == undefined|| this.data.C3_561812973382 ==""){
+
+      alert("请上传附件2！");
+      return false;
+      }
+    }
+    if(this.titleArray["5"].FrmIsNoNull == '1'){
+      if(this.data.C3_561812974789 == undefined|| this.data.C3_561812974789 ==""){
+
+      alert("请上传附件3！");
+      return false;
+      }
+    }
     if (this.localDataState) this.eventNoti.emit({ name: "add", data: this.data });
     else {
 

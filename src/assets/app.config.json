@@ -1,7 +1,7 @@
 {
     "path": {
-        "baseUrl": "http://10.108.2.66:9091/",
-        "loginBaseUrl": "http://10.108.2.66:9091/",
+        "baseUrl": "http://114.55.58.57:9095/",
+        "loginBaseUrl": "http://114.55.58.57:9095/",
         "getData": "api/100/table/Retrieve",
         "getSubData": "api/100/table/RetrieveRelTableByHostRecord",
         "saveData": "api/100/table/Save",
@@ -143,9 +143,15 @@
                     "isSubForm": false,
                     "formName": "default"
                 }
+            ],
+            "tabsD": [
+                {
+                    "isSubForm": false,
+                    "formName": "default"
+                }
             ]
         },
-        "securityOut":{
+        "securityOut":{ 
             "requestParams": {
                 "resid": 561753093403,
                 "pageIndex": 0,
@@ -311,6 +317,12 @@
                 "pageSize": 10,
                 "getcolumninfo": 1
             },
+            "requestWaitParams": {
+                "resid": 578756520789,
+                "pageIndex": 0,
+                "pageSize": 10,
+                "getcolumninfo": 1
+            },
 
 
 
@@ -327,7 +339,7 @@
             "tabsA": [
                 {
                     "isSubForm": false,
-                    "formName": "default"
+                    "formName": "update"
                 }
             ],
             "tabsB": [

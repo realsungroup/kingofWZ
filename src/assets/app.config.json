@@ -129,13 +129,13 @@
             ],"tabsA": [
                 {
                     "isSubForm": false,
-                    "formName": "default"
+                    "formName": "default2"
                 }
             ],
             "tabsB": [
                 {
                     "isSubForm": false,
-                    "formName": "default"
+                    "formName": "default3"
                 }
             ],
             "tabsC": [
@@ -193,7 +193,7 @@
                 "pageIndex": 0,
                 "pageSize": 10,
                 "getcolumninfo": 1
-            },
+            },      
             "requestErrorPassParams": {
                 "resid": 564688802203,
                 "pageIndex": 0,
@@ -207,7 +207,7 @@
             "tabs": [
                 {
                     "isSubForm": false,
-                    "formName": "default"
+                    "formName": "add"
                 }
             ],
             "tabsA": [

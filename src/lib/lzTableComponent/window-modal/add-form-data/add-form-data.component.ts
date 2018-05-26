@@ -56,7 +56,7 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
     if(this.titleArray["0"].FrmIsNoNull == '1'){
       if(this.data.C3_561660086724 == undefined|| this.data.C3_561660086724 ==""){
 
-      alert("请填写物品名称！");
+      alert("请填写物品名称！");  
       return false;
       }
     }

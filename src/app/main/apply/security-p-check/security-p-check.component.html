@@ -34,7 +34,7 @@
              [requestDataType]="childrequestDataType"
              [serchEnable]="false"
              [isAttachDataModal]="true"
-             [tabs]="tabsA"
+             [tabs]="tabsB"
              [operationOrginButton]="[false,true,false,false]"
              >
 
@@ -107,6 +107,47 @@
         [data]="selectDataC"
         [isMainData]="true"
         [resid]="requestErrorParams.resid">
+             <app-lzcommon-table
+             [isAutoData]="true"
+             [requestType]="'GET'"
+             [requestUrl]="childurl"
+             [alertModal]="true"
+             [requestParams]="childrequestParams"
+             [requestDataType]="childrequestDataType"
+             [serchEnable]="false"
+             [isAttachDataModal]="true"
+             [tabs]="tabsA"
+             [operationOrginButton]="[true,false,false,false]"
+             >
+
+            </app-lzcommon-table>
+          </app-modal-form>  
+    </ng-container>
+    </nz-tab>
+    <nz-tab >
+      <ng-template #nzTabHeading>
+         待返回
+      </ng-template>
+      <div [class.hidden]="isDetaillWaitShow">
+      <app-lzcommon-table #requestWaitPtable
+      [tabs]="tabsB"
+      [isAutoData]="true"
+      [alertModal]="true"
+      [requestType]="'GET'"
+      [requestUrl]="url"
+      [requestParams]="requestWaitParams"
+      [requestDataType]="requestDataType"
+      [operationOrginButton]="[false,false,false,false]"
+      [operationButton]="operationButtonD"
+      (operationBtnNoti)="operationBtnNotiD($event)"
+      ></app-lzcommon-table></div>
+      <ng-container *ngIf="isDetaillWaitShow">
+        <app-modal-form 
+        (eventNoti)="closeWait($event)"
+        [tabs]="tabs"
+        [data]="selectDataB"
+        [isMainData]="true"
+        [resid]="requestWaitParams.resid">
              <app-lzcommon-table
              [isAutoData]="true"
              [requestType]="'GET'"

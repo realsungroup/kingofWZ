@@ -19,6 +19,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   breadcrumbArr: Array<any> = [];
   isCollapsed = false;
+  isHideControl=false;
   routerArr: any;
   _siderHeight: number = 0;
   constructor(protected router: Router,
@@ -31,6 +32,9 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     if(window.app['hideMenu'] == '1') this.isCollapsed = true;//code url 登录闭合菜单
+    if(window.app['hideControl'] == '1') this.isHideControl = true; 
+
+     
   }
 
   ngAfterViewInit() {

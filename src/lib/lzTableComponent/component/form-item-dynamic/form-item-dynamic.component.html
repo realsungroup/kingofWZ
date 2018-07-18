@@ -29,7 +29,7 @@
   <!-- 下拉菜单 -->
   <div *ngSwitchCase="formItemEM.OptionValue" nz-col [nzSpan]="nSpan" nz-form-control>
     <nz-select [nzDisabled]="title.FrmReadonly" style="width: 200px;" (ngModelChange)="modelChange($event,formItemEM.OptionValue)"
-      [(ngModel)]="obj" [nzSize]="size">
+      [(ngModel)]="obj" [nzSize]="size" >
       <nz-option *ngFor="let ol of (title.DisplayOptions | merge:title.ValueOptions)" [nzLabel]="ol.paramOne" [nzValue]="ol.paramTwo">
       </nz-option>
     </nz-select>

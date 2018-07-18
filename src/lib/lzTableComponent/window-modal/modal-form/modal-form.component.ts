@@ -152,7 +152,7 @@ export class ModalFormComponent implements OnInit, OnDestroy {
 
   //提交事件(主表)
   submitClick() {
-    if (this.localDataState) this.eventNoti.emit({ name: "modify", data: this.data });
+      if (this.localDataState) this.eventNoti.emit({ name: "modify", data: this.data });
     else {
       let url = this.path.baseUrl + this.path.saveData;
       let params = {

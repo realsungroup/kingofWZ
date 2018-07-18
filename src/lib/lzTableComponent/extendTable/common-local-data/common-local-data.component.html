@@ -108,6 +108,7 @@
     </ng-container>
   </ng-container>
   
+  
   <ng-container *ngIf="_theModalName == 'addDataForm'">
       <lz-modal-frame (closeEM)="alertModalEM($event)" *ngIf="alertModal">
         <app-add-form-data [localDataState]="true" [alertModal]="alertModal" [addFormName]="addFormName" [resid]="resid" [isCustomPosition]="isAddCustomPosition" (eventNoti)="modalFormNoti($event)"></app-add-form-data>

@@ -34,7 +34,7 @@ export class SecurityOutComponent implements OnInit , AfterViewInit{
   requestPassParams={};
   requestErrorPassParams={};
   requestCancelParams={};
-
+  tableBtnStrArr= [];
   @ViewChild("unApproveTable")
   private unApproveTable: LZcommonTableComponent;
   @ViewChild("RejectTable")
@@ -43,7 +43,7 @@ export class SecurityOutComponent implements OnInit , AfterViewInit{
   private CancelTable: LZcommonTableComponent;
   operationButton=[{title:"提交申请",type:'default'},{title:"撤销",type:'default'}]
   operationButtonB=[{title:"撤销",type:'default'}]
-  
+
   constructor(private httpSev: BaseHttpService,private appSev:AppService,private mainSev:MainService,private router:Router,private messageSev:NzMessageService) {
     this.mainSev.setBreadDataWithUrl(window.app["routesArr"], this.router.url);
   }
@@ -73,15 +73,15 @@ export class SecurityOutComponent implements OnInit , AfterViewInit{
     this.tabsE=passCard.tabsE;
     this.tabsF=passCard.tabsF;
     this.tabsG=passCard.tabsG;
-    
+    this.tableBtnStrArr=this.appSev.app.pages.securityOut.tableBtnStrArr;
   }
   ngAfterViewInit() {
-    
-    
+
+
         setTimeout(() => {
           console.info("ngAfterViewInit", this.unApproveTable);
         }, 2000);
-    
+
       }
   operationBtnNoti(e){
     if(e.i==0){e.data.C3_564681179531 ='Y'

@@ -4,22 +4,22 @@
     <ng-template #nzTabHeading>
       待提交
     </ng-template>
-    <app-extend-table #unApproveTable 
-    [pageName]="'securityOut'" 
+    <app-extend-table #unApproveTable
+    [pageName]="'securityOut'"
     [addForm]="true"
-    [isAutoData]="true" 
-    [subResid]="subResid" 
+    [isAutoData]="true"
+    [subResid]="subResid"
     [requestType]="'GET'"
-      [requestUrl]="url" 
-      [requestParams]="requestParams" 
-      [requestDataType]="requestDataType" 
+      [requestUrl]="url"
+      [requestParams]="requestParams"
+      [requestDataType]="requestDataType"
       [operationOrginButton]="[true,true,false,false]"
       [editOperationOrginButton]="[false,true,false,true]"
-      [addFormName]="addFormName" 
-      [tabs]="tabs" 
+      [addFormName]="addFormName"
+      [tabs]="tabs"
       [isEditCustomPosition]="isEditCustomPosition"
        [isAddCustomPosition]="isAddCustomPosition"
-      [operationButton]="operationButton" 
+      [operationButton]="operationButton"
       (operationBtnNoti)="operationBtnNoti($event)">
     </app-extend-table>
   </nz-tab>
@@ -39,8 +39,9 @@
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
     [editOperationOrginButton]="[true,false,false,false]"
-    [operationButton]="operationButtonB" 
+    [operationButton]="operationButtonB"
     (operationBtnNoti)="operationBtnNotiB($event)"
+    [tableBtnStrArr]="tableBtnStrArr"
      ></app-extend-table>
 
   </nz-tab>
@@ -131,7 +132,7 @@
     [requestDataType]="requestDataType"
     [operationOrginButton]="[true,false,false,false]"
     [editOperationOrginButton]="[true,false,false,false]"
-    
+
     >
      </app-extend-table>
   </nz-tab>

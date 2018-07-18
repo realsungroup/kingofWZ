@@ -151,7 +151,8 @@
                 }
             ]
         },
-        "securityOut":{ 
+        "securityOut":{
+           "tableBtnStrArr":["N","Y","N","N","N"],
             "requestParams": {
                 "resid": 561753093403,
                 "pageIndex": 0,
@@ -193,7 +194,7 @@
                 "pageIndex": 0,
                 "pageSize": 10,
                 "getcolumninfo": 1
-            },      
+            },
             "requestErrorPassParams": {
                 "resid": 564688802203,
                 "pageIndex": 0,
@@ -294,7 +295,7 @@
                 "forName":"default"
 
                  }
-                  
+
 
               ]
         },

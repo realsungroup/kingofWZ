@@ -16,10 +16,10 @@ import { FormService } from '../../service/form.service';
 export class AddFormDataComponent extends ModalFormComponent implements OnInit {
   @Input() addFormName: string;//添加数据的form
   @Input() resid: string;//主表ID
-
+  @Input() recid:string
   titleArray = [];
   titleElementArray = [];
-  data: any = {};
+  data: any = [];
   formHeight = 0;
 
   ngOnInit() {
@@ -53,48 +53,87 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
   }
 
   submitClick() {
-    if(this.titleArray["0"].FrmIsNoNull == '1'){
-      if(this.data.C3_561660086724 == undefined|| this.data.C3_561660086724 ==""){
-
-      alert("请填写物品名称！");  
-      return false;
+    if(this.titleArray["0"].ColDispName === "备注"){
+          
+      
+      let path = this.httpSev.appConfig.path;
+      let urlStr = path.baseUrl + path.saveData;
+      let a ={
+        REC_ID:this.recid,}
+      // this.data.push(a)
+      let params = {
+        resid: this.resid,
+        data: [{C3_588338237787:this.data.C3_586524155067,REC_ID:this.recid}],
+        // formname: this.addFormName,
+        // REC_ID:this.recid
       }
-    }
-    if(this.titleArray["1"].FrmIsNoNull == '1'){
-      if(this.data.C3_561660095455 == undefined|| this.data.C3_561660095455 ==""){
+      this.httpSev.baseRequest("POST", urlStr, params, this.httpSev.dataT.FixMoreDataEM).subscribe(
+        data => {
+          if (data && data.Error == 0){
+            // this._theMainModal = true;
+            // this.alertModal = true;
+    // this.eventNoti.emit({ name: "close" });
+    
+            this.messageSev.success("备注成功！");
+           this.eventNoti.emit({ name: "update", data: this.data });//通知父组件更新数据
+          
+          } else if (data && data.Error < 0) {
+            this._theMainModal = true;
+            this.alertModal = true;
+            this.messageSev.error(data.message)
+          }
+        },
+        err => {
+          this.messageSev.error("添加失败");
+          return false
+        },
+        () => {
 
-      alert("请填写单位！");
-      return false;
-      }
-    }
-    if(this.titleArray["2"].FrmIsNoNull == '1'){
-      if(this.data.C3_561660118451 == undefined|| this.data.C3_561660118451 ==""){
+        })
+    
+    }else{
+    // if(this.titleArray["0"].FrmIsNoNull == '1'){
+    //   if(this.data.C3_561660086724 == undefined|| this.data.C3_561660086724 ==""){
 
-      alert("请填写数量！");
-      return false;
-      }
-    }
-    if(this.titleArray["3"].FrmIsNoNull == '1'){
-      if(this.data.C3_561812970226 == undefined|| this.data.C3_561812970226 ==""){
+    //   alert("请填写物品名称！");  
+    //   return false;
+    //   }
+    // }
+    // if(this.titleArray["1"].FrmIsNoNull == '1'){
+    //   if(this.data.C3_561660095455 == undefined|| this.data.C3_561660095455 ==""){
 
-      alert("请上传附件1！");
-      return false;
-      }
-    }
-    if(this.titleArray["4"].FrmIsNoNull == '1'){
-      if(this.data.C3_561812973382 == undefined|| this.data.C3_561812973382 ==""){
+    //   alert("请填写单位！");
+    //   return false;
+    //   }
+    // }
+    // if(this.titleArray["2"].FrmIsNoNull == '1'){
+    //   if(this.data.C3_561660118451 == undefined|| this.data.C3_561660118451 ==""){
 
-      alert("请上传附件2！");
-      return false;
-      }
-    }
-    if(this.titleArray["5"].FrmIsNoNull == '1'){
-      if(this.data.C3_561812974789 == undefined|| this.data.C3_561812974789 ==""){
+    //   alert("请填写数量！");
+    //   return false;
+    //   }
+    // }
+    // if(this.titleArray["3"].FrmIsNoNull == '1'){
+    //   if(this.data.C3_561812970226 == undefined|| this.data.C3_561812970226 ==""){
 
-      alert("请上传附件3！");
-      return false;
-      }
-    }
+    //   alert("请上传附件1！");
+    //   return false;
+    //   }
+    // }
+    // if(this.titleArray["4"].FrmIsNoNull == '1'){
+    //   if(this.data.C3_561812973382 == undefined|| this.data.C3_561812973382 ==""){
+
+    //   alert("请上传附件2！");
+    //   return false;
+    //   }
+    // }
+    // if(this.titleArray["5"].FrmIsNoNull == '1'){
+    //   if(this.data.C3_561812974789 == undefined|| this.data.C3_561812974789 ==""){
+
+    //   alert("请上传附件3！");
+    //   return false;
+    //   }
+    // }
     if (this.localDataState) this.eventNoti.emit({ name: "add", data: this.data });
     else {
 
@@ -120,6 +159,6 @@ export class AddFormDataComponent extends ModalFormComponent implements OnInit {
         })
     }
   }
-
+}
 
 }

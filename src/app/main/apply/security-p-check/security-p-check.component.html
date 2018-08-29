@@ -147,7 +147,8 @@
         [tabs]="tabs"
         [data]="selectDataB"
         [isMainData]="true"
-        [resid]="requestWaitParams.resid">
+        [resid]="requestWaitParams.resid"
+        >
              <app-lzcommon-table
              [isAutoData]="true"
              [requestType]="'GET'"
@@ -159,10 +160,21 @@
              [isAttachDataModal]="true"
              [tabs]="tabsA"
              [operationOrginButton]="[true,false,false,false]"
+             
              >
 
             </app-lzcommon-table>
+
           </app-modal-form>  
+          
+    </ng-container>
+    <ng-container *ngIf="!_theMainModal">
+        <lz-modal-frame (closeEM)="_theMainModal = true" [width]="700">
+            <app-add-form-data [alertModal]="alertModal" [addFormName]="addFormName"  [resid]="resid" [recid]="recid"  [isCustomPosition]="isAddCustomPosition"
+            (eventNoti)="modalFormNoti($event)"></app-add-form-data>
+            <!-- [formname]="formname"  -->
+            <!-- <app-form-item-resource [alertModal]="true" [advDictionaryListData]="advDictionaryListData" (formItemResourceNoti)="formItemResourceNoti($event)"></app-form-item-resource> -->
+        </lz-modal-frame>
     </ng-container>
     </nz-tab>
 </nz-tabset>

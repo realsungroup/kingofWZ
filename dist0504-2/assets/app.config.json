@@ -117,7 +117,7 @@
                 "pageSize": 10,
                 "getcolumninfo": 1
             },
-            "addFormName": "add",
+            "addFormName": "default",
             "subResid": 562179293341,
             "isEditCustomPosition": false,
             "isAddCustomPosition": false,

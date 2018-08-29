@@ -69,7 +69,20 @@
                     </ng-container>
                 </td>
             </tr>
+
             <tr nz-tbody-tr>
+                <td nz-td>备注</td>
+                <td nz-td>
+                    <ng-container *ngIf="detail">
+                        {{data['C3_588704150292']}}
+                    </ng-container>
+                    <ng-container *ngIf="!detail">
+                        <app-form-item-dynamic [nSpan]="20" *ngIf="_data.C3_588704150292" [data]="data" [title]="_data.C3_588704150292" (clickNotiEvent)="formItemDynamicClick($event)"
+                            (updateNotiEvent)="update($event)"></app-form-item-dynamic>
+                    </ng-container>
+                </td>
+                </tr>
+            <!-- <tr nz-tbody-tr> -->
          
                 <!-- <td nz-td>搬入处</td>
                 <td nz-td>
@@ -92,7 +105,7 @@
                     </ng-container>
                 </td> -->
                 
-            </tr>
+            <!-- </tr> -->
           
         </tbody>
     </nz-table>

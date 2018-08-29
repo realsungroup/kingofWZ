@@ -43,6 +43,8 @@ export class ModalFormComponent implements OnInit, OnDestroy {
   @Input() tabs: Array<LZTab> = [];//标签数据，获取标题数据后添加进去
   @Input() data: any = {};//单个data数据
   @Input() resid: string = '';//主表ID
+  // @Input() formname: string = '';//窗体名字
+  @Input() selectdata:any = []
   @Output() eventNoti = new EventEmitter();//与lzcommontable组件通信
 
   constructor(protected httpSev: BaseHttpService, protected ut: LZUntilService, protected messageSev: NzMessageService, protected modalSev: NzModalService,protected formService:FormService) {
@@ -108,10 +110,14 @@ export class ModalFormComponent implements OnInit, OnDestroy {
 
   getData(formName: string, resid: string) {
     let urlStr: string = this.path.baseUrl + this.path.getFormDefine;
-    let params: any = {
-      "resid": resid,//id
-      "formname": formName//窗体名
-    }
+  //   if(this.formname === undefined){
+  //     this.formname = "default2";
+    
+  // } 
+  let params: any = {
+    "resid": resid,//id
+    "formname": formName//窗体名
+  }
     return this.httpSev.baseRequest("GET", urlStr, params, -1);
   }
 

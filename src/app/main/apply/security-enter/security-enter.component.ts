@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild ,AfterViewInit} from '@angular/core';
+import { Component, OnInit,ViewChild ,AfterViewInit, Output} from '@angular/core';
 import { BaseHttpService } from '../../../base-http-service/base-http.service';
 import { AppService } from '../../../app.service';
 import { MainService } from '../../main.service';
@@ -12,9 +12,16 @@ import { LZcommonTableComponent } from '../../../../../src/lib/lzTableComponent/
 })
 export class SecurityEnterComponent implements OnInit {
 
+  _theModalName: string = 'main';//弹出窗体的控制变量
+  _theMainModal:boolean = true;
   url: string = '';
   requestParams: any = {};
   requestDataType: number = -1;
+  
+  @Output() resid: string;//主表ID
+  // @Output() formname: string;
+  @Output() recid:string
+  childrequestParams={};
   subResid = '';
   subResidB='';
   subResidC='';
@@ -27,6 +34,7 @@ export class SecurityEnterComponent implements OnInit {
   addFormName = 'add';
   operationButton=[{title:"确认进入",type:'default'},{title:"撤销",type:'default'}];
   operationButtonB=[{title:"出门确认",type:'default'}];
+  // ,{title:"备注",type:'default'}
   requestovergooutParams={};
   requestungooutParams={};
   requestCancelgooutParams={};
@@ -132,7 +140,21 @@ this.httpSev.baseRequest('POST',url,pppam,this.httpSev.dataT.FixOneDataEM).subsc
 
 
 
-}
+}if(e.i==1){
+  
+  this._theMainModal = false; 
+
+  
+this.resid= "564858118261";//id
+// this.formname = "default2"//窗体名
+let passCard = this.appSev.app.pages['securityEnter'];
+
+this.childrequestParams['hostrecid'] = e.data['REC_ID'];
+this.recid = this.childrequestParams['hostrecid']
+  
+  
+  
+  }
 
 
 

@@ -39,4 +39,6 @@ export class TableTbodyComponent {
     serveMenuClick($event, btnI, btn, dataIndex) {
         this.serveBtnClickEM.emit({ $event, btnI, btn, dataIndex });
     }
+    
+
 }

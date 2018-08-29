@@ -44,7 +44,16 @@
     [operationButton]="operationButtonB" 
     (operationBtnNoti)="operationBtnNotiB($event)"
      ></app-extend-table>
+     <ng-container *ngIf="!_theMainModal">
+      <lz-modal-frame (closeEM)="_theMainModal = true" [width]="700">
+          <app-add-form-data [alertModal]="alertModal" [addFormName]="addFormName"  [resid]="resid"  [recid]="recid"  [isCustomPosition]="isAddCustomPosition"
+          (eventNoti)="modalFormNoti($event)"></app-add-form-data>
+          <!-- [formname]="formname" -->
+          <!-- <app-form-item-resource [alertModal]="true" [advDictionaryListData]="advDictionaryListData" (formItemResourceNoti)="formItemResourceNoti($event)"></app-form-item-resource> -->
+      </lz-modal-frame>
+  </ng-container>
   </nz-tab>
+  
   <nz-tab *ngFor="let tab of tabs">
       <ng-template #nzTabHeading>
         确认完成

@@ -55,7 +55,7 @@ export class LZcommonTableComponent implements OnInit, OnChanges {
   // 传入数据(所需参数)
   @Input() resid: string;//主表ID
   @Input() current = 0;//当前页数
-  @Input() pageSize = 10;//一页pageSize条数据
+  @Input() pageSize = 50;//一页pageSize条数据
   @Output() commonNotification = new EventEmitter();//更新回调事件
 
   _total = 1;//数据总数

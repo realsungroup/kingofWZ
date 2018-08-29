@@ -4,23 +4,54 @@
     <!-- ????? -->
     <ng-container *ngFor="let isShow of operationOrginButton;let index = index">
         <td *ngIf="isShow">
-            <button nz-button [nzType]="_orginBtnType[index]" (click)="orginBtnClick($event,index,data,dataIndex)">
+            <button nz-button [nzType]="_orginBtnType[index]"   (click)="orginBtnClick($event,index,data,dataIndex)">
                 <span>{{_orginBtnTitle[index]}}</span>
             </button>
         </td>
     </ng-container>
 
     <!-- ?????? -->
-    <td nz-td *ngFor="let btn of operationButton;let i = index">
-        <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" (click)="btnClick($event,i,data)">
+
+    <td nz-td  *ngFor="let btn of operationButton;let i = index">
+        <!-- <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" (nzOnConfirm)="confirm()" (nzOnCancel)="cancel()"  nz-popconfirm nzTitle="确定删除吗?"  (click)="btnClick($event,i,data)">
+            <span>{{btn.title}}</span>
+        </button> -->
+        <span *ngIf = "btn.title === '通过'||btn.title === '拒绝'">
+        <nz-popconfirm nzTitle='确定{{btn.title}}吗？' (nzOnConfirm)="btnClick($event,i,data)">
+                <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" nz-popconfirm>
+                        <span>{{btn.title}}</span></button>
+              </nz-popconfirm>
+        </span>
+        <span *ngIf = "btn.title === '同意' ">
+            <nz-popconfirm nzTitle='确定{{btn.title}}吗？' (nzOnConfirm)="btnClick($event,i,data)">
+                    <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" nz-popconfirm>
+                            <span>{{btn.title}}</span></button>
+                  </nz-popconfirm>
+            </span>
+        <span *ngIf = "btn.title === '确认带回' ">
+                <nz-popconfirm nzTitle='{{btn.title}}吗？' (nzOnConfirm)="btnClick($event,i,data)">
+                        <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" nz-popconfirm>
+                                <span>{{btn.title}}</span></button>
+                      </nz-popconfirm>
+                </span>
+        <span *ngIf = "btn.title === '审查'||btn.title === '详情' ||btn.title === '备注' ">
+            <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading"   (click)="btnClick($event,i,data)">
             <span>{{btn.title}}</span>
         </button>
+        </span>
+        <span *ngIf="btn.title === '提交申请'">
+            <nz-popconfirm nzTitle='确认{{btn.title}}吗？' (nzOnConfirm)="btnClick($event,i,data)">
+              <button nz-button [nzType]="btn.type" [nzLoading]="btn.loading" nz-popconfirm>
+                <span>{{btn.title}}</span></button>
+            </nz-popconfirm>
+          </span>
+        
     </td>
 
     <!-- 服务器按钮组 -->
     <ng-container *ngFor="let btn of tableBtnArr;let btnI = index">
         <td nz-td *ngIf="btn.Show && btn.Type == 1 && tableBtnStrArr[btnI] && data[tableBtnStrArr[btnI]] == 'Y'">
-            <button nz-button (click)="serveMenuClick($event,btnI,btn,dataIndex)">
+            <button nz-button   (click)="serveMenuClick($event,btnI,btn,dataIndex)">
                 <span>{{btn.Name1}}</span>
             </button>
         </td>

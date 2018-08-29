@@ -176,8 +176,19 @@ export class BaseGoodsComponent implements OnInit {
 
     this.httpSev.baseRequest("POST", url, params, type).subscribe(
       data => {
+        // if(data.Error || data.error){
+        //   alert(data.message)
+        // }else{
+        // this.eventNoti.emit({ name: "update", data: this.data });//通知父组件更新数据
+
+        if (data && data.error == 0 || data.Error == 0) 
         this.eventNoti.emit({ name: "update", data: this.data });//通知父组件更新数据
+        else if (data && data.error < 0 ||data.Error < 0) {
+          this.messageSev.error(data['message'])
+        }
+
         // alert("save success" + JSON.stringify(data));
+      
       },
       err => {
         this.messageSev.error("保存失败" + JSON.stringify(err));

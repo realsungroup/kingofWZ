@@ -1,7 +1,7 @@
 {
     "path": {
-        "baseUrl": "http://ngrok4.realsun.me/",
-        "loginBaseUrl": "http://ngrok4.realsun.me/",
+        "baseUrl": "http://ngrok8.realsun.me/",
+        "loginBaseUrl": "http://ngrok8.realsun.me/",
         "getData": "api/100/table/Retrieve",
         "getSubData": "api/100/table/RetrieveRelTableByHostRecord",
         "saveData": "api/100/table/Save",

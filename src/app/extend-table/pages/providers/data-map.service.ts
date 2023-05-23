@@ -108,6 +108,7 @@ export const SECURITY_OUT_DATAMAP = {
   C3_563907241287: null,
   C3_563907286751: null,
   C3_563907311636: null,
+  C3_733682222471: null
 }
 
 export const FACTORY_MOVE_DATAMAP = {

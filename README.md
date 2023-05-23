@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Memo
+node版本切换到 8.10.0以后，使用npm run serve命令运行本项目。
+由于项目的一些依赖已经不再维护，建议使用仓库里已经打包好的node_module。

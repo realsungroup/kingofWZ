@@ -158,7 +158,9 @@ export class BaseHttpService {
       }); //alert(this.loginMethod)
 
       return headers;
-    } else return new Headers();
+    } else return new Headers({
+        "Access-Control-Allow-Headers":"Authorization, Content-Type, Depth,User-Agent, X-File-Size, X-Requested-With, X-Requested-By, If-Modified-Since, X-File-Name, X-File-Type, Cache-Control, Origin"
+      });
   }
 
   baseRequest(type: string, url: string, params: any, dType?: dataType) {
